@@ -5,11 +5,7 @@ import Placeholder from "@/components/Placeholder.astro";
 
 const team = [
   { name: "Francis Wang", role: "Founder", note: "Over a decade in renewable energy software; patent holder in distributed energy management. Doctoral research in long-term innovation, applying futures research and strategic foresight." },
-  { name: "Maria", role: "Systems architecture", note: "Systems architecture and operational scaling." },
-  { name: "Arwin", role: "AIOps", note: "Seasoned AIOps engineer; formerly at Cruise on autonomous-vehicle data processing." },
-  { name: "Alex", role: "Design", note: "Leads design on AI products at RBC." },
-  { name: "James", role: "Platform engineering", note: "Platform engineer with a decade of digital transformation experience." },
-  { name: "William", role: "Financial governance", note: "Four decades of financial governance and network, including Merrill Lynch." },
+  { name: "William Yao", role: "Financial governance", note: "Four decades of financial governance and network, including Merrill Lynch." },
 ];
 ---
 
@@ -20,8 +16,8 @@ const team = [
 >
   <PageHeader
     eyebrow="About"
-    title="One early company within a long coalition."
-    lede="DAI Compute is the first vehicle in a programme called Sovereign Energy and AI Infrastructure Canada. We combine AI systems architecture, foresight methodology, energy economics, and financial governance."
+    title="Built by the disciplines this problem requires."
+    lede="DAI Compute is the first vehicle in a programme called Sovereign Energy and AI Infrastructure Canada, pairing energy-software and foresight with deep financial governance."
   />
 
   <!-- Why us -->
@@ -34,10 +30,10 @@ const team = [
         </h2>
         <div class="mt-6 space-y-4 text-base leading-relaxed text-slate">
           <p>
-            The team combines the disciplines this problem requires: renewable
-            energy software and distributed energy management, futures research
-            and strategic foresight, AIOps and platform engineering, product
-            design, and decades of financial governance.
+            The founding pair combines the two disciplines this problem most
+            requires: renewable energy software and distributed energy
+            management, futures research and strategic foresight, alongside four
+            decades of financial governance and network.
           </p>
           <p>
             We recently submitted to an ISED call for proposals, a blockchain
@@ -58,11 +54,11 @@ const team = [
   <!-- Team grid -->
   <section class="border-y border-hairline bg-ink-2/30">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      <p class="field-label" style="color: var(--color-orange);">The team</p>
+      <p class="field-label" style="color: var(--color-orange);">The founders</p>
       <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
-        The disciplines this problem requires.
+        Energy and foresight, meet financial governance.
       </h2>
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid gap-6 sm:grid-cols-2">
         {
           team.map((m) => (
             <div class="border border-hairline bg-ink-2/60 p-6">
@@ -74,7 +70,7 @@ const team = [
         }
       </div>
       <p class="field-note mt-6 text-slate/60">
-        Team detail is carried from internal materials; public attribution to be confirmed before launch.
+        Public attribution confirmed for the founding pair; additional team detail withheld pre-launch.
       </p>
     </div>
   </section>
@@ -84,15 +80,24 @@ const team = [
     <div class="max-w-3xl">
       <p class="field-label" style="color: var(--color-orange);">Origin</p>
       <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
-        From a Cooperathon idea to a fifty-year programme.
+        It started with a dependence problem.
       </h2>
       <p class="mt-5 text-base leading-relaxed text-slate">
-        DAI Compute began in the Cooperathon 2026 Prosperity Track as a way to
-        connect Canadian energy to Canadian compute. It draws on the foresight
-        methodology and Trajectory Storylines developed at FW.VISION, and sits
-        within a coalition of ventures building sovereign infrastructure across
-        many years.
+        DAI Compute began with a deep-seated problem Francis Wang kept running
+        into: Canada is structurally dependent on the United States for the
+        infrastructure its AI economy runs on. Even the data centres on Canadian
+        soil, in Ontario and Quebec, are owned by American corporations, so
+        under the U.S. CLOUD Act, U.S. authorities can compel access to the data
+        on those servers. Every time a Canadian firm runs an AI query through
+        that infrastructure, it is running through American jurisdiction.
       </p>
+      <p class="mt-4 text-base leading-relaxed text-slate">
+        The response is a credit protocol that lets Canadians finance and own
+        the energy and compute themselves, on Canadian soil, under Canadian law.
+      </p>
+      <a href="/sovereignty" class="accent-link field-note mt-6 inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
+        The problem we solve <span aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </section>
 

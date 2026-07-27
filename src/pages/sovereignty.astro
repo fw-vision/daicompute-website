@@ -2,167 +2,209 @@
 import Main from "@/layouts/Main.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import StatCounter from "@/components/StatCounter.astro";
-import { ForesightScope } from "@fw-vision/widgets";
-import "@fw-vision/widgets/style.css";
-import { sovereigntyForesightData } from "@/data/foresight";
+import Placeholder from "@/components/Placeholder.astro";
 
-const horizons = [
-  {
-    h: "H1",
-    span: "0-10 years",
-    title: "Foundation",
-    body: "Regulatory clarity, the first financed nodes online, and proven unit economics. The protocol deploys on an EVM L2; the first enterprise compute contracts validate demand.",
-  },
-  {
-    h: "H2",
-    span: "10-30 years",
-    title: "Network effect and supply-chain independence",
-    body: "Thousands of nodes create aggregate demand large enough to justify domestic procurement and chip packaging. Canada begins to supply its own equipment; government becomes a compute customer.",
-  },
-  {
-    h: "H3",
-    span: "30-50 years",
-    title: "Vertical integration and economic sovereignty",
-    body: "From distributed nodes to sovereign manufacturing: full integration from generation through silicon, with a sovereign compute standard exported to allied nations.",
-  },
+const investment = [
+  { nation: "United States", amount: "$280B", instrument: "CHIPS and Science Act", year: "2022" },
+  { nation: "European Union", amount: "Multi-billion EUR", instrument: "EuroHPC Joint Undertaking", year: "2018-" },
+  { nation: "United Kingdom", amount: "£1B", instrument: "AI infrastructure scheme", year: "2024" },
+  { nation: "India", amount: "$1B", instrument: "IndiaAI", year: "2024" },
+  { nation: "Canada", amount: "$2.7B", instrument: "AI Compute Access Fund + SCIP", year: "2024-26" },
+];
+
+const energy = [
+  { province: "Quebec", cost: "$0.05/kWh", note: "Industrial; among the cheapest globally" },
+  { province: "Manitoba", cost: "$0.102/kWh", note: "Second cheapest; hydro-dominant" },
+  { province: "British Columbia", cost: "$0.114/kWh", note: "Hydro-dominant" },
+  { province: "Alberta", cost: "$0.258/kWh", note: "Deregulated; solar PPA below $30/MWh" },
 ];
 ---
 
 <Main
-  title="Sovereignty - The fifty-year trajectory"
-  description="DAI Compute is the first vehicle on a fifty-year journey toward Canadian economic sovereignty. Climate physics, energy advantage, and distributed participation, mapped on the ForesightScope."
+  title="Sovereignty - The problem: Canada's dependence on US infrastructure"
+  description="Even data centres in Ontario and Quebec are American-owned and exposed to the US CLOUD Act. Every Canadian AI query runs through American jurisdiction. The problem DAI Compute exists to solve."
   activePath="/sovereignty"
 >
   <PageHeader
-    eyebrow="The long horizon"
-    title="The first vehicle on a fifty-year journey toward economic sovereignty."
-    lede="The protocol is the mechanism. A sovereign, resilient, economically independent Canada is the vision. DAI Compute mobilises private capital alongside public investment to build it."
+    eyebrow="The problem we solve"
+    title="Canada runs its AI on infrastructure it does not own or govern."
+    lede="Canada is structurally dependent on the United States for the infrastructure its AI economy runs on. Even the data centres on Canadian soil are American-owned, and under the U.S. CLOUD Act, American jurisdiction reaches the data on those servers. This is the dependence DAI Compute exists to end."
   />
 
-  <!-- Climate stakes -->
+  <!-- Problem 1: the CLOUD Act / ownership trap -->
   <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-    <div class="grid gap-12 lg:grid-cols-[1fr_1fr]">
-      <div>
-        <p class="field-label" style="color: var(--color-orange);">Civilisational stakes</p>
-        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
-          The human climate niche is shifting northward.
-        </h2>
-        <div class="mt-6 space-y-4 text-base leading-relaxed text-slate">
-          <p>
-            More than 600 million people already live outside the human climate
-            niche. On the current policy trajectory, 2.1 to 3.7 billion people
-            could be left outside it by 2080-2100. The niche peaks around 13&deg;C
-            mean annual temperature, the zone of southern Canada.
-          </p>
-          <p>
-            Canada is the second largest country on Earth by land, with roughly
-            40 million people and one of the lowest population densities among
-            developed nations. As temperature zones move north and southern
-            landmass constrains the alternatives, Canada faces significant
-            population-influx pressure over the coming decades.
-          </p>
-        </div>
-        <p class="field-note mt-5 text-slate/60">
-          Sources: Lenton et al. (2023), Nature Sustainability; World Bank Groundswell (2021).
+    <p class="field-label" style="color: var(--color-flag-red);">The core problem &middot; Foreign jurisdiction</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      A Canadian postal code is not Canadian jurisdiction.
+    </h2>
+    <div class="mt-6 grid gap-8 lg:grid-cols-2">
+      <div class="space-y-4 text-base leading-relaxed text-slate">
+        <p>
+          The largest data centres in Ontario and Quebec are owned and operated
+          by American corporations. Because the operating entity is American,
+          the U.S. CLOUD Act (2018) lets U.S. authorities compel disclosure of
+          the data on those servers, regardless of the fact that the building
+          sits on Canadian soil.
+        </p>
+        <p>
+          So every time a Canadian firm runs an AI query, trains a model, or
+          stores data through that infrastructure, it is running through
+          American legal jurisdiction. Canadian privacy law does not protect
+          against it. Geographic location is not the same thing as legal
+          sovereignty.
+        </p>
+        <p class="text-mist">
+          The consequence is quiet but compounding: Canadian firms lose
+          government contracts on data-residency grounds, Canadian energy is
+          converted to foreign profit, and the country's AI economy is built on
+          rails it does not control.
         </p>
       </div>
       <div class="flex flex-col justify-center border border-hairline bg-ink-2/50 p-8">
-        <StatCounter
-          cols={2}
-          accent="yellow"
-          stats={[
-            { value: "3.7B", label: "may be outside the climate niche by 2080", source: "Nature Sustainability, 2023" },
-            { value: "2nd", label: "largest country on Earth by land", source: "" },
-            { value: "$5.3B", label: "Canadian SMR market, 2025-2040", source: "NRCan SMR Roadmap" },
-            { value: "~40yr", label: "for Taiwan to reach chip leadership", source: "Historical precedent" },
-          ]}
-        />
+        <p class="field-label text-slate">What the CLOUD Act means in practice</p>
+        <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate">
+          <li class="flex gap-3"><span aria-hidden="true" style="color: var(--color-flag-red);">&mdash;</span> U.S. authorities can compel U.S.-based providers to disclose data stored anywhere in the world.</li>
+          <li class="flex gap-3"><span aria-hidden="true" style="color: var(--color-flag-red);">&mdash;</span> A "Canadian region" of a U.S. cloud is marketing, not jurisdiction.</li>
+          <li class="flex gap-3"><span aria-hidden="true" style="color: var(--color-flag-red);">&mdash;</span> Canadian firms bidding on government work can be disqualified on data-residency grounds.</li>
+          <li class="flex gap-3"><span aria-hidden="true" style="color: var(--color-flag-red);">&mdash;</span> The exposure grows as AI is embedded in more corporate, health, and government processes.</li>
+        </ul>
+        <p class="field-note mt-5 text-slate/60">
+          Confirmed by academic legal analysis (Olorunlana 2025; Spartak 2025).
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Live ForesightScope -->
+  <!-- Problem 2: the sovereignty investment gap -->
   <section class="border-y border-hairline bg-ink-2/30">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-      <p class="field-label" style="color: var(--color-orange);">ForesightScope</p>
+      <p class="field-label" style="color: var(--color-flag-red);">The scale &middot; A dependence gap</p>
       <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
-        The trajectory of economic sovereignty, and the pitfalls of missing it.
+        Canada has no system in the global supercomputing elite, and a fraction of the investment.
       </h2>
-      <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate">
-        History converges at the present; the future cone expands to the right.
-        Scenarios sit on horizon rings by likelihood. The preferred trajectory
-        reaches economic sovereignty at H3, with a medium-term milestone of
-        supply-chain independence. When a binding constraint is left
-        unaddressed, the storyline falls to the off-ramp.
-      </p>
-      <div class="mt-10 border border-hairline bg-ink-2" style="height: 620px;">
-        <ForesightScope client:only="react" data={sovereigntyForesightData} />
+      <div class="mt-6 grid gap-8 lg:grid-cols-2">
+        <div class="space-y-4 text-base leading-relaxed text-slate">
+          <p>
+            Canada does not appear in the TOP500 top 10 (November 2024). The
+            federal government spent $705M on one centralised supercomputer for
+            academic researchers, which does not serve the 140,000 professionals
+            in industry, the startups, or the citizens.
+          </p>
+          <blockquote class="border-l-2 pl-5 text-mist" style="border-color: var(--color-flag-red);">
+            &ldquo;Currently, most compute capacity is located in other
+            countries. This exposes Canadian firms to a reliance on
+            privately-owned computing, outside of Canada. This comes with
+            dependencies and security risks.&rdquo;
+            <cite class="field-note mt-3 block not-italic text-slate">Budget 2024, Chapter 4 (verbatim)</cite>
+          </blockquote>
+        </div>
+        <div class="border border-hairline bg-ink-2/60 p-7">
+          <p class="field-label text-slate">Sovereign compute investment</p>
+          <table class="mt-4 w-full text-sm">
+            <thead>
+              <tr class="border-b border-hairline text-left">
+                <th class="pb-2 font-medium text-mist">Nation</th>
+                <th class="pb-2 text-right font-medium text-mist">Committed</th>
+                <th class="pb-2 text-right font-medium text-mist">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                investment.map((r) => (
+                  <tr class="border-b border-hairline/60">
+                    <td class="py-2.5">
+                      <span class="font-medium text-snow">{r.nation}</span>
+                      <span class="field-note block text-slate/60">{r.instrument}</span>
+                    </td>
+                    <td class="py-2.5 text-right font-medium" style="color: var(--color-orange);">{r.amount}</td>
+                    <td class="field-note py-2.5 text-right text-slate">{r.year}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+          <p class="field-note mt-4 text-slate/60">Canada's total is roughly 1% of US investment.</p>
+        </div>
       </div>
-      <p class="field-note mt-4 text-slate/60">
-        The ForesightScope is a foresight instrument developed by FW.VISION. It
-        is a continuously developed model, not a forecast.
-      </p>
     </div>
   </section>
 
-  <!-- Horizons -->
+  <!-- Problem 3: the energy paradox -->
   <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-    <p class="field-label" style="color: var(--color-orange);">Multi-horizon phasing</p>
-    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
-      Capital first. Then supply. Then sovereignty.
-    </h2>
-    <div class="mt-12 overflow-hidden border border-hairline">
-      {
-        horizons.map((h, i) => (
-          <div class:list={["grid gap-6 bg-ink-2/50 p-8 md:grid-cols-[auto_1fr] md:gap-12", i > 0 && "border-t border-hairline"]}>
-            <div class="md:w-48">
-              <span class="font-display text-2xl font-semibold tracking-tight" style="color: var(--color-orange);">{h.h}</span>
-              <span class="field-note mt-1 block text-slate">{h.span}</span>
-            </div>
-            <div>
-              <h3 class="font-display text-xl font-semibold leading-snug text-snow">{h.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate">{h.body}</p>
-            </div>
-          </div>
-        ))
-      }
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div>
+        <p class="field-label" style="color: var(--color-flag-red);">The paradox &middot; Wasted advantage</p>
+        <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
+          The cheapest clean energy in the G7 powers foreign-owned data centres.
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-slate">
+          Canada has the energy advantage and the cold-climate cooling advantage
+          that AI compute needs. Today that advantage is captured by American
+          hyperscalers, for their shareholders. The electrons are Canadian; the
+          value, the jurisdiction, and the ownership are not.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-slate">
+          The assets exist. What is missing is the mechanism for Canadians to
+          finance and own the compute those electrons could power.
+        </p>
+      </div>
+      <div class="border border-hairline bg-ink-2/60 p-6">
+        <table class="w-full text-sm">
+          <tbody>
+            {
+              energy.map((e, i) => (
+                <tr class={i > 0 ? "border-t border-hairline" : ""}>
+                  <td class="py-3 align-top">
+                    <span class="font-medium text-snow">{e.province}</span>
+                    <span class="field-note block text-slate/60">{e.note}</span>
+                  </td>
+                  <td class="py-3 text-right align-top font-medium" style="color: var(--color-yellow);">{e.cost}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        <p class="field-note mt-4 text-slate/60">
+          Cold-climate cooling cuts data-centre cooling costs 40-60%. Quebec has 700MW of surplus hydro.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Co-location model -->
+  <!-- The resolution -->
   <section class="hero-glow relative overflow-hidden border-t border-hairline bg-ink-2/40">
     <div class="tech-grid absolute inset-0 opacity-70"></div>
     <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
       <div class="max-w-3xl">
-        <p class="field-label" style="color: var(--color-orange);">The settlement foundation</p>
+        <p class="field-label" style="color: var(--color-orange);">The response</p>
         <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
-          Energy and compute, co-located, as the foundation for the Canada that is arriving.
+          Let Canadians finance and own the infrastructure themselves.
         </h2>
         <p class="mt-6 text-base leading-relaxed text-mist">
-          Small modular reactors are designed for off-grid power in remote and
-          northern communities. Co-locate that generation with compute and you
-          get self-sufficient settlements: economically viable through compute
-          revenue, positioned where climate migration will drive future growth,
-          and contributing sovereign AI capacity from distributed northern
-          nodes.
+          DAI Compute is a credit protocol that connects Canadian capital to
+          Canadian energy and compute, on Canadian soil, under Canadian law.
+          Depositors earn yield from building it; builders borrow against it.
+          Sovereignty is the collateral and the moat, the one thing no foreign
+          cloud and no global compute market can offer.
         </p>
-        <p class="field-note mt-5 text-slate/60">
-          Climate physics drives population north; Canada must build
-          infrastructure where people will live; energy-and-compute co-location
-          is the economic foundation; distributed participation mobilises the
-          capital; blockchain is the accounting that makes it verifiable.
-        </p>
+        <div class="mt-8 flex flex-wrap gap-5">
+          <a href="/protocol" class="btn-primary inline-flex items-center px-7 py-3.5 text-sm">How the protocol works</a>
+          <a href="/future" class="btn-ghost inline-flex items-center px-7 py-3.5 text-sm">The fifty-year vision &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10">
-    <h2 class="mx-auto max-w-2xl font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
-      The journey starts with the first cohort.
-    </h2>
-    <a href="/contact" class="btn-primary mt-8 inline-flex items-center px-7 py-3.5 text-sm">
-      Back the first cohort
-    </a>
+  <!-- Evidence note -->
+  <section class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+    <div class="max-w-3xl border-l-2 pl-6" style="border-color: var(--color-orange);">
+      <p class="field-label text-slate">On the numbers</p>
+      <p class="mt-3 text-sm leading-relaxed text-slate">
+        Every figure on this page traces to a primary government, institutional,
+        or peer-reviewed source. Where a commonly cited statistic could not be
+        verified against a primary source, we have left it off rather than
+        repeat it.
+      </p>
+    </div>
   </section>
 </Main>

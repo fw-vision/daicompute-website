@@ -1,0 +1,168 @@
+---
+import Main from "@/layouts/Main.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import StatCounter from "@/components/StatCounter.astro";
+import { ForesightScope } from "@fw-vision/widgets";
+import "@fw-vision/widgets/style.css";
+import { sovereigntyForesightData } from "@/data/foresight";
+
+const horizons = [
+  {
+    h: "H1",
+    span: "0-10 years",
+    title: "Foundation",
+    body: "Regulatory clarity, the first financed nodes online, and proven unit economics. The protocol deploys on an EVM L2; the first enterprise compute contracts validate demand.",
+  },
+  {
+    h: "H2",
+    span: "10-30 years",
+    title: "Network effect and supply-chain independence",
+    body: "Thousands of nodes create aggregate demand large enough to justify domestic procurement and chip packaging. Canada begins to supply its own equipment; government becomes a compute customer.",
+  },
+  {
+    h: "H3",
+    span: "30-50 years",
+    title: "Vertical integration and economic sovereignty",
+    body: "From distributed nodes to sovereign manufacturing: full integration from generation through silicon, with a sovereign compute standard exported to allied nations.",
+  },
+];
+---
+
+<Main
+  title="The Future - The fifty-year trajectory"
+  description="DAI Compute is the first vehicle on a fifty-year journey toward Canadian economic sovereignty. Climate physics, energy advantage, and distributed participation, mapped on the ForesightScope."
+  activePath="/future"
+>
+  <PageHeader
+    eyebrow="The long horizon"
+    title="The first vehicle on a fifty-year journey toward economic sovereignty."
+    lede="The protocol is the mechanism. A sovereign, resilient, economically independent Canada is the vision. DAI Compute mobilises private capital alongside public investment to build it."
+  />
+
+  <!-- Climate stakes -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr]">
+      <div>
+        <p class="field-label" style="color: var(--color-orange);">Civilisational stakes</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+          The human climate niche is shifting northward.
+        </h2>
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-slate">
+          <p>
+            More than 600 million people already live outside the human climate
+            niche. On the current policy trajectory, 2.1 to 3.7 billion people
+            could be left outside it by 2080-2100. The niche peaks around 13&deg;C
+            mean annual temperature, the zone of southern Canada.
+          </p>
+          <p>
+            Canada is the second largest country on Earth by land, with roughly
+            40 million people and one of the lowest population densities among
+            developed nations. As temperature zones move north and southern
+            landmass constrains the alternatives, Canada faces significant
+            population-influx pressure over the coming decades.
+          </p>
+        </div>
+        <p class="field-note mt-5 text-slate/60">
+          Sources: Lenton et al. (2023), Nature Sustainability; World Bank Groundswell (2021).
+        </p>
+      </div>
+      <div class="flex flex-col justify-center border border-hairline bg-ink-2/50 p-8">
+        <StatCounter
+          cols={2}
+          accent="yellow"
+          stats={[
+            { value: "3.7B", label: "may be outside the climate niche by 2080", source: "Nature Sustainability, 2023" },
+            { value: "2nd", label: "largest country on Earth by land", source: "" },
+            { value: "$5.3B", label: "Canadian SMR market, 2025-2040", source: "NRCan SMR Roadmap" },
+            { value: "~40yr", label: "for Taiwan to reach chip leadership", source: "Historical precedent" },
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Live ForesightScope -->
+  <section class="border-y border-hairline bg-ink-2/30">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <p class="field-label" style="color: var(--color-orange);">ForesightScope</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+        The trajectory of economic sovereignty, and the pitfalls of missing it.
+      </h2>
+      <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate">
+        History converges at the present; the future cone expands to the right.
+        Scenarios sit on horizon rings by likelihood. The preferred trajectory
+        reaches economic sovereignty at H3, with a medium-term milestone of
+        supply-chain independence. When a binding constraint is left
+        unaddressed, the storyline falls to the off-ramp.
+      </p>
+      <div class="foresight-dark mt-10 w-full border border-hairline bg-ink-2 aspect-[16/9] max-h-[520px]">
+        <ForesightScope client:only="react" data={sovereigntyForesightData} />
+      </div>
+      <p class="field-note mt-4 text-slate/60">
+        The ForesightScope is a foresight instrument developed by FW.VISION. It
+        is a continuously developed model, not a forecast.
+      </p>
+    </div>
+  </section>
+
+  <!-- Horizons -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <p class="field-label" style="color: var(--color-orange);">Multi-horizon phasing</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      Capital first. Then supply. Then sovereignty.
+    </h2>
+    <div class="mt-12 overflow-hidden border border-hairline">
+      {
+        horizons.map((h, i) => (
+          <div class:list={["grid gap-6 bg-ink-2/50 p-8 md:grid-cols-[auto_1fr] md:gap-12", i > 0 && "border-t border-hairline"]}>
+            <div class="md:w-48">
+              <span class="font-display text-2xl font-semibold tracking-tight" style="color: var(--color-orange);">{h.h}</span>
+              <span class="field-note mt-1 block text-slate">{h.span}</span>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-semibold leading-snug text-snow">{h.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate">{h.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Co-location model -->
+  <section class="hero-glow relative overflow-hidden border-t border-hairline bg-ink-2/40">
+    <div class="tech-grid absolute inset-0 opacity-70"></div>
+    <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="max-w-3xl">
+        <p class="field-label" style="color: var(--color-orange);">The settlement foundation</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+          Energy and compute, co-located, as the foundation for the Canada that is arriving.
+        </h2>
+        <p class="mt-6 text-base leading-relaxed text-mist">
+          Small modular reactors are designed for off-grid power in remote and
+          northern communities. Co-locate that generation with compute and you
+          get self-sufficient settlements: economically viable through compute
+          revenue, positioned where climate migration will drive future growth,
+          and contributing sovereign AI capacity from distributed northern
+          nodes.
+        </p>
+        <p class="field-note mt-5 text-slate/60">
+          Climate physics drives population north; Canada must build
+          infrastructure where people will live; energy-and-compute co-location
+          is the economic foundation; distributed participation mobilises the
+          capital; blockchain is the accounting that makes it verifiable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10">
+    <h2 class="mx-auto max-w-2xl font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
+      The journey starts with the first cohort.
+    </h2>
+    <a href="/contact" class="btn-primary mt-8 inline-flex items-center px-7 py-3.5 text-sm">
+      Back the first cohort
+    </a>
+  </section>
+</Main>
