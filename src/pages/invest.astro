@@ -1,0 +1,132 @@
+---
+import Main from "@/layouts/Main.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import StepCard from "@/components/StepCard.astro";
+import TokenCard from "@/components/TokenCard.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import Placeholder from "@/components/Placeholder.astro";
+---
+
+<Main
+  title="Invest - Earn yield from building Canadian infrastructure"
+  description="Deposit into CADS, a fully-backed synthetic Canadian dollar, and stake for sCADS to earn yield from real energy and compute loans. Asset-backed, verifiable, sovereign."
+  activePath="/invest"
+>
+  <PageHeader
+    eyebrow="Invest"
+    title="Earn yield from building Canadian infrastructure."
+    lede="Deposit for a fully-backed synthetic Canadian dollar. Stake it for yield drawn from real energy and compute loans, not token subsidies or trading fees. Every dollar you deposit is traceable to physical Canadian assets."
+  />
+
+  <!-- How investing works -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <p class="field-label" style="color: var(--color-orange);">How it works</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      Capital in, yield out. No loans to originate or manage.
+    </h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <StepCard index="01" title="Deposit for CADS">
+        Deposit a regulated Canadian-dollar-backed reserve and receive
+        <span class="ticker text-mist">CADS</span>, a synthetic Canadian dollar
+        pegged 1:1 and fully backed. CADS is liquid and composable; it does not
+        itself accrue yield.
+      </StepCard>
+      <StepCard index="02" title="Stake for sCADS">
+        Stake CADS to mint <span class="ticker text-mist">sCADS</span>, the
+        yield-bearing token. Yield accrues into a rising exchange rate; there is
+        nothing to claim manually.
+      </StepCard>
+      <StepCard index="03" title="Earn from the loan book">
+        Your yield is drawn from two real sources: interest paid by
+        infrastructure borrowers, and T-bill yield on idle reserves between
+        deployments.
+      </StepCard>
+    </div>
+  </section>
+
+  <!-- Instruments -->
+  <section class="border-y border-hairline bg-ink-2/30">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <p class="field-label" style="color: var(--color-orange);">The depositor instruments</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+        A stable unit and its yield-bearing counterpart.
+      </h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <TokenCard
+          symbol="CADS"
+          name="Synthetic Canadian dollar"
+          tagline="The stable entry point. Fully backed, redeemable, liquid, composable."
+          attributes={[
+            { k: "Peg", v: "1:1 to CAD" },
+            { k: "Backing", v: "Reserves + senior loan claim" },
+            { k: "Yield", v: "None (hold / transfer / trade)" },
+            { k: "Mint / burn", v: "On deposit / redemption" },
+          ]}
+        />
+        <TokenCard
+          symbol="sCADS"
+          name="Staked CADS"
+          tagline="The yield-bearing credit instrument. Earn from the infrastructure loan book."
+          accent="yellow"
+          attributes={[
+            { k: "Yield sources", v: "Loan interest + T-bills" },
+            { k: "Accrual", v: "Rising CADS:sCADS rate" },
+            { k: "Redemption", v: "Epoch queue (FIFO)" },
+            { k: "Liquidity", v: "Northern Queue priority bidding" },
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust features -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <p class="field-label" style="color: var(--color-orange);">Why you can trust it</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      Verified, backed, and sovereign.
+    </h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <FeatureCard kicker="Proof of reserves" title="Verify on-chain">
+        View the real-time status of treasury assets, loans, and collateral
+        directly on-chain. The on-chain register is the authoritative record of
+        every position.
+      </FeatureCard>
+      <FeatureCard kicker="Asset-backed" title="Real collateral" accent="yellow">
+        Yield reflects the actual economics of Canadian energy and compute
+        infrastructure, secured by physical hardware and its cashflows.
+      </FeatureCard>
+      <FeatureCard kicker="Orderly exits" title="Northern Queue">
+        Redemptions run on fixed epochs with an auction-based priority queue, so
+        the protocol never force-liquidates infrastructure loans to satisfy
+        withdrawals.
+      </FeatureCard>
+    </div>
+    <div class="mt-10">
+      <Placeholder
+        kind="data"
+        ratio="21/9"
+        label="Proof-of-reserves dashboard preview"
+        note="Sourcing brief: on-chain reserves view (CADS backing = reserves + loan book), loan-level collateral and borrower health, yield sources split. USD.AI 'verified reserves' analog, Canada-sovereign framing. Cursor / dataviz handoff."
+      />
+    </div>
+  </section>
+
+  <!-- Pre-CSA note + CTA -->
+  <section class="border-t border-hairline">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div class="max-w-3xl border-l-2 pl-6" style="border-color: var(--color-orange);">
+        <p class="field-label text-slate">Where we are</p>
+        <p class="mt-3 text-sm leading-relaxed text-slate">
+          DAI Compute is pre-launch and pursuing regulatory clarity through the
+          CSA Sandbox. No financial product is offered yet, and no live yield or
+          deposit figures are published until that pathway is clear. This is not
+          investment advice. Register your interest to be part of the first
+          cohort when deposits open.
+        </p>
+        <a href="/contact" class="btn-primary mt-6 inline-flex items-center px-7 py-3.5 text-sm">
+          Register investor interest
+        </a>
+      </div>
+    </div>
+  </section>
+</Main>

@@ -14,18 +14,17 @@ export interface Props {
 
 const {
   title,
-  description = "Distributed AI Compute. A Canadian protocol for sovereign energy and AI compute infrastructure, asset-backed and community-operated.",
+  description = "DAI Compute. The method for Canadians to invest in, borrow against, and build Canadian energy and AI compute infrastructure. Blockchain sovereign compute.",
   activePath = "",
   heroNav = false,
 } = Astro.props;
 
 const navLinks = [
-  { label: "The Problem", href: "/problem" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Participate", href: "/participate" },
+  { label: "Invest", href: "/invest" },
+  { label: "Build", href: "/build" },
+  { label: "Protocol", href: "/protocol" },
   { label: "Sovereignty", href: "/sovereignty" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const year = new Date().getFullYear();
@@ -40,7 +39,7 @@ const year = new Date().getFullYear();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -55,12 +54,10 @@ const year = new Date().getFullYear();
       data-hero-nav={heroNav ? "true" : "false"}
       class:list={[
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        heroNav
-          ? "is-hero"
-          : "is-solid border-b border-hairline bg-parchment/90 backdrop-blur",
+        heroNav ? "is-hero" : "is-solid",
       ]}
     >
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <a href="/" class="site-brand" aria-label="DAI Compute home">
           <Wordmark variant="nav" class="text-lg" />
         </a>
@@ -77,11 +74,8 @@ const year = new Date().getFullYear();
             ))
           }
         </nav>
-        <a
-          href="/participate"
-          class="hidden rounded-none border border-current px-4 py-2 text-xs font-medium uppercase tracking-[0.16em] transition-colors lg:inline-block nav-link"
-        >
-          Join the cohort
+        <a href="/invest" class="btn-primary hidden px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] lg:inline-block">
+          Register interest
         </a>
       </div>
     </header>
@@ -90,36 +84,41 @@ const year = new Date().getFullYear();
       <slot />
     </main>
 
-    <footer class="invert-band mt-28">
-      <div class="wireframe-grid--dark border-t border-white/10">
+    <footer class="border-t border-hairline">
+      <div class="tech-grid">
         <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
           <div class="flex flex-col justify-between gap-10 md:flex-row">
             <div class="max-w-sm">
               <span class="font-display text-2xl font-semibold tracking-tight">
-                <span style="color: var(--color-spruce-bright);">DAI</span> Compute
+                <span style="color: var(--color-orange);">DAI</span> Compute
               </span>
-              <p class="mt-4 text-sm leading-relaxed text-white/65">
-                A Canadian protocol for sovereign energy and AI compute
-                infrastructure. Every token backed by physical Canadian assets;
-                every contribution verifiable.
+              <p class="mt-4 text-sm leading-relaxed text-slate">
+                The method for Canadians to invest in, borrow against, and build
+                Canadian energy and AI compute infrastructure. Blockchain
+                sovereign compute.
               </p>
-              <p class="field-note mt-5 text-white/40">
-                Infrastructure with blockchain accounting. Complementary to the
-                federal Sovereign Compute programme, not competitive with it.
+              <p class="field-note mt-5 text-slate/70">
+                Infrastructure finance with blockchain accounting. Built in
+                Canada, backed by Canada, owned by Canadians.
               </p>
             </div>
-            <nav class="flex flex-col gap-2.5 text-sm text-white/70">
-              <a href="/problem" class="transition-colors hover:text-white">The Problem</a>
-              <a href="/how-it-works" class="transition-colors hover:text-white">How It Works</a>
-              <a href="/participate" class="transition-colors hover:text-white">Participate</a>
-              <a href="/sovereignty" class="transition-colors hover:text-white">Sovereignty</a>
-              <a href="/about" class="transition-colors hover:text-white">About</a>
-              <a href="/contact" class="transition-colors hover:text-white">Contact</a>
+            <nav class="flex flex-col gap-2.5 text-sm text-slate">
+              <a href="/invest" class="transition-colors hover:text-snow">Invest</a>
+              <a href="/build" class="transition-colors hover:text-snow">Build</a>
+              <a href="/protocol" class="transition-colors hover:text-snow">Protocol</a>
+              <a href="/sovereignty" class="transition-colors hover:text-snow">Sovereignty</a>
+              <a href="/about" class="transition-colors hover:text-snow">About</a>
+              <a href="/contact" class="transition-colors hover:text-snow">Contact</a>
             </nav>
           </div>
-          <p class="field-note mt-12 text-white/40">
-            &copy; {year} DAI Compute. Backing Canadian economic sovereignty.
-          </p>
+          <div class="mt-12 flex flex-col justify-between gap-4 border-t border-hairline pt-6 md:flex-row">
+            <p class="field-note text-slate/60">
+              &copy; {year} DAI Compute. Backing Canadian economic sovereignty.
+            </p>
+            <p class="field-note text-slate/50">
+              Pre-launch. No financial product is offered. Not investment advice.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
@@ -130,11 +129,8 @@ const year = new Date().getFullYear();
         if (!header || header.dataset.heroNav !== "true") return;
         const threshold = 120;
         const sync = () => {
-          if (window.scrollY > threshold) {
-            header.classList.add("scrolled");
-          } else {
-            header.classList.remove("scrolled");
-          }
+          if (window.scrollY > threshold) header.classList.add("scrolled");
+          else header.classList.remove("scrolled");
         };
         sync();
         window.addEventListener("scroll", sync, { passive: true });

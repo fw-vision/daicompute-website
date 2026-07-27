@@ -1,104 +1,75 @@
 ---
 import Main from "@/layouts/Main.astro";
 import PageHeader from "@/components/PageHeader.astro";
-import Placeholder from "@/components/Placeholder.astro";
 ---
 
 <Main
-  title="Contact - Talk to DAI Compute"
-  description="Register your interest as a node operator, investor, or enterprise buyer, or reach out about energy and financing partnerships."
+  title="Contact - Register interest in DAI Compute"
+  description="Register your interest to invest, build, or partner. DAI Compute is pre-launch and pursuing regulatory clarity; no financial product is offered yet."
   activePath="/contact"
 >
   <PageHeader
     eyebrow="Contact"
     title="Back Canadian compute. Start the conversation."
-    lede="Tell us how you would like to participate: operate a node, back the network as an investor, buy sovereign compute, or partner on energy or financing."
+    lede="Tell us how you would like to participate: invest for yield, borrow to build, buy sovereign compute, or partner on energy or financing."
   />
 
   <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
     <div class="grid gap-14 lg:grid-cols-[1fr_1fr]">
       <div>
-        <p class="field-label" style="color: var(--color-spruce);">Get in touch</p>
-        <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+        <p class="field-label" style="color: var(--color-orange);">Get in touch</p>
+        <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
           We read every message.
         </h2>
-        <p class="mt-5 text-base leading-relaxed text-graphite">
-          DAI Compute is in its early stages. We are honest about that: the
-          network is at pilot phase and the regulatory pathway is underway. If
-          you want to be part of the first node cohort, or to explore an energy
-          or financing partnership, this is the place to start.
+        <p class="mt-5 text-base leading-relaxed text-slate">
+          DAI Compute is in its early stages and pursuing regulatory clarity
+          through the CSA Sandbox. No financial product is offered yet. If you
+          want to be part of the first cohort, or to explore an energy or
+          financing partnership, this is the place to start.
         </p>
         <div class="mt-8 space-y-5">
           <div>
-            <p class="field-label text-graphite">Email</p>
-            <a href="mailto:hello@daicompute.com" class="accent-link mt-1 inline-block text-lg">
-              hello@daicompute.com
-            </a>
+            <p class="field-label text-slate">Email</p>
+            <a href="mailto:hello@daicompute.com" class="accent-link mt-1 inline-block text-lg">hello@daicompute.com</a>
           </div>
           <div>
-            <p class="field-label text-graphite">The ask</p>
-            <p class="mt-1 text-sm leading-relaxed text-graphite">
-              Our near-term goal is ten pilot nodes operational within a year.
-              Real hardware, real generation, real compute.
+            <p class="field-label text-slate">The near-term goal</p>
+            <p class="mt-1 text-sm leading-relaxed text-slate">
+              A first cohort of pilot nodes operational within a year. Real
+              hardware, real generation, real compute.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Contact form (front-end scaffold; needs a backend before launch) -->
-      <div class="border border-hairline bg-parchment-2/40 p-8">
-        <p class="field-label" style="color: var(--color-spruce);">Register interest</p>
+      <div class="border border-hairline bg-ink-2/50 p-8">
+        <p class="field-label" style="color: var(--color-orange);">Register interest</p>
         <form class="mt-6 space-y-5" name="contact" onsubmit="return false;">
           <div>
-            <label for="name" class="field-note block text-graphite">Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              class="mt-1.5 w-full border border-hairline bg-parchment px-3.5 py-2.5 text-sm text-ink focus:border-graphite focus:outline-none"
-            />
+            <label for="name" class="field-note block text-slate">Name</label>
+            <input id="name" name="name" type="text" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none" />
           </div>
           <div>
-            <label for="email" class="field-note block text-graphite">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              class="mt-1.5 w-full border border-hairline bg-parchment px-3.5 py-2.5 text-sm text-ink focus:border-graphite focus:outline-none"
-            />
+            <label for="email" class="field-note block text-slate">Email</label>
+            <input id="email" name="email" type="email" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none" />
           </div>
           <div>
-            <label for="role" class="field-note block text-graphite">I am a</label>
-            <select
-              id="role"
-              name="role"
-              class="mt-1.5 w-full border border-hairline bg-parchment px-3.5 py-2.5 text-sm text-ink focus:border-graphite focus:outline-none"
-            >
-              <option>Prospective node operator</option>
-              <option>Investor</option>
-              <option>Enterprise compute buyer</option>
+            <label for="role" class="field-note block text-slate">I am a</label>
+            <select id="role" name="role" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none">
+              <option>Prospective investor / depositor</option>
+              <option>Prospective borrower / node operator</option>
               <option>Energy company</option>
               <option>Financing partner</option>
+              <option>Enterprise compute buyer</option>
               <option>Other</option>
             </select>
           </div>
           <div>
-            <label for="message" class="field-note block text-graphite">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              class="mt-1.5 w-full border border-hairline bg-parchment px-3.5 py-2.5 text-sm text-ink focus:border-graphite focus:outline-none"
-            ></textarea>
+            <label for="message" class="field-note block text-slate">Message</label>
+            <textarea id="message" name="message" rows="4" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none"></textarea>
           </div>
-          <button
-            type="submit"
-            class="w-full px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
-            style="background-color: var(--color-spruce);"
-          >
-            Send
-          </button>
-          <p class="field-note text-graphite/60">
+          <button type="submit" class="btn-primary w-full px-6 py-3 text-sm">Send</button>
+          <p class="field-note text-slate/60">
             This form is a front-end scaffold. A submission backend is a launch
             item; see CONTENT-PLAN.md.
           </p>

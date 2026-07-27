@@ -4,70 +4,73 @@
 @source "../../node_modules/@fw-vision/web-kit";
 
 /* =====================================================================
-   DAI Compute design system
-   Reference: Pravah (engineering dossier on warm parchment; full-bleed
-   dark inversions; wireframe grid illustration; uppercase tracked
-   field-note labels; single-family two-weight type; contrast through
-   tonal inversion, not chroma).
-   Retuned to DAI Compute's own sovereign palette: warm parchment canvas,
-   deep slate-teal inversion band (in place of Pravah aubergine), and a
-   sovereign spruce-green accent (energy + northern), distinct from the
-   burgundy of SyncID / fw.vision. Brands are related-but-distinct.
+   DAI Compute design system - Sovereign InfraFi (USD.AI-model reframing)
+   Reference class: USD.AI (institutional-dark credit protocol).
+   Palette: Canada flag red (sovereignty) + energetic orange / power yellow
+   (energy) on a deep near-black institutional canvas.
+   Full spec: 04_Execute/DAICompute/brand/brand-guidelines/
    ===================================================================== */
 
 @theme {
-  /* Single-family, two-weight type discipline. IBM Plex Sans reads as an
-     engineering / infrastructure register; IBM Plex Mono for field-note
-     labels and data. */
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
-  --font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* Restrained display scale (dossier, not billboard) */
-  --text-display: 4.25rem; /* ~68px */
-  --text-display--line-height: 1.04;
-  --text-display--letter-spacing: -0.02em;
+  /* Oversized display scale */
+  --text-display: 4.5rem; /* ~72px */
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
 
-  --text-display-sm: 2.75rem;
-  --text-display-sm--line-height: 1.08;
-  --text-display-sm--letter-spacing: -0.015em;
+  --text-display-sm: 3.25rem;
+  --text-display-sm--line-height: 1.05;
+  --text-display-sm--letter-spacing: -0.025em;
 
-  /* Palette: warm parchment + slate-teal ink + spruce accent */
-  --color-parchment: #f3efe6; /* warm parchment canvas */
-  --color-parchment-2: #ece6d9; /* slightly deeper parchment for cards */
-  --color-ink: #1a2320; /* near-black with a green-slate cast */
-  --color-graphite: #47554f; /* muted slate-green graphite */
-  --color-hairline: #d6cfbf; /* warm hairline on parchment */
-  --color-slate: #16211f; /* deep slate-teal for inversion bands */
-  --color-slate-2: #1f2d2a; /* card on the dark band */
-  --color-spruce: #2f6f5b; /* sovereign spruce-green accent */
-  --color-spruce-bright: #4a9d82; /* brighter spruce for dark-band signal */
+  /* Sovereign (red) */
+  --color-flag-red: #d52b1e;
+  --color-flag-red-deep: #a81e14;
+  --color-flag-red-tint: #f2c9c5;
+
+  /* Energy (warm accent ramp) */
+  --color-orange: #ff6a1a;
+  --color-orange-bright: #ff8340;
+  --color-yellow: #ffc21a;
+  --color-yellow-soft: #ffe08a;
+
+  /* Institutional neutrals (dark-first) */
+  --color-ink: #0b0d0f;
+  --color-ink-2: #14171a;
+  --color-ink-3: #1d2125;
+  --color-hairline: #2a2f35;
+  --color-slate: #8a939c;
+  --color-mist: #c4cbd2;
+  --color-snow: #f4f6f8;
 }
 
-/* DAI Compute accent + neutrals, consumed by web-kit components via --wk-*.
-   Declared AFTER web-kit tokens.css import so these values win, including
-   over web-kit's prefers-color-scheme dark block. */
+/* Semantic + web-kit binding. Declared AFTER web-kit tokens.css import so
+   these win, including over web-kit's prefers-color-scheme dark block. */
 :root {
-  --wk-accent: #2f6f5b; /* spruce */
-  --wk-ink: #1a2320;
-  --wk-graphite: #47554f;
-  --wk-hairline: #d6cfbf;
-  --wk-canvas: #f3efe6;
-  --wk-paper: #ece6d9;
+  --wk-accent: #ff6a1a; /* energetic orange = primary action */
+  --wk-ink: #f4f6f8; /* on our dark canvas, "ink" text is snow */
+  --wk-graphite: #8a939c;
+  --wk-hairline: #2a2f35;
+  --wk-canvas: #0b0d0f;
+  --wk-paper: #14171a;
+
+  --grad-energy: linear-gradient(90deg, #ff6a1a 0%, #ffc21a 100%);
 }
 
-/* Hold the parchment scheme regardless of OS dark-mode preference. */
-@media (prefers-color-scheme: dark) {
+/* Hold the dark institutional scheme regardless of OS preference. */
+@media (prefers-color-scheme: light) {
   :root {
-    --wk-ink: #1a2320;
-    --wk-graphite: #47554f;
-    --wk-hairline: #d6cfbf;
-    --wk-canvas: #f3efe6;
-    --wk-paper: #ece6d9;
+    --wk-ink: #f4f6f8;
+    --wk-graphite: #8a939c;
+    --wk-hairline: #2a2f35;
+    --wk-canvas: #0b0d0f;
+    --wk-paper: #14171a;
   }
 }
 
-/* ---- Base typography ---- */
+/* ---- Base ---- */
 html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -75,8 +78,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-ink);
-  background: var(--color-parchment);
+  color: var(--color-snow);
+  background: var(--color-ink);
 }
 
 h1,
@@ -84,23 +87,29 @@ h2,
 h3,
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
-/* Uppercase tracked field-note label (the Pravah signature) */
+/* Mono field-note label (signature texture) */
 .field-label {
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   font-size: 0.7rem;
   font-weight: 500;
 }
 
-/* Monospace field-note (numbers, coordinates, callouts) */
 .field-note {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.01em;
+}
+
+/* Ticker treatment (CADS, sCADS, CROWN) */
+.ticker {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 a {
@@ -108,7 +117,7 @@ a {
 }
 
 .accent-link {
-  color: var(--color-spruce);
+  color: var(--color-orange);
   position: relative;
 }
 .accent-link::after {
@@ -127,84 +136,103 @@ a {
   transform: scaleX(1);
 }
 
-/* =====================================================================
-   Wireframe grid illustration surface (the Pravah engineering-drawing
-   motif). Used behind heroes and diagram placeholders.
-   ===================================================================== */
-.wireframe-grid {
-  background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--color-graphite) 14%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--color-graphite) 14%, transparent) 1px, transparent 1px);
-  background-size: 32px 32px;
+/* ---- Energy gradient text + surfaces ---- */
+.text-energy {
+  background: var(--grad-energy);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.wireframe-grid--dark {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
+.bg-energy {
+  background: var(--grad-energy);
 }
 
-/* =====================================================================
-   Full-bleed dark inversion band. Contrast through tonal inversion, not
-   chroma (parchment <-> slate-teal). One brighter spruce for signal.
-   ===================================================================== */
-.invert-band {
-  background: var(--color-slate);
-  color: #e8efec;
+/* ---- Primary CTA (orange fill, dark text) ---- */
+.btn-primary {
+  background: var(--color-orange);
+  color: var(--color-ink);
+  font-weight: 500;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
-.invert-band .field-label {
-  color: var(--color-spruce-bright);
+.btn-primary:hover {
+  background: var(--color-orange-bright);
 }
-.invert-band a.accent-link {
-  color: var(--color-spruce-bright);
+
+/* ---- Ghost / secondary CTA ---- */
+.btn-ghost {
+  border: 1px solid var(--color-hairline);
+  color: var(--color-snow);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+/* ---- Grid texture (institutional wireframe wash) ---- */
+.tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ---- Hero glow (energy gradient radial wash) ---- */
+.hero-glow {
+  position: relative;
+}
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    60% 50% at 20% 0%,
+    rgba(255, 106, 26, 0.18) 0%,
+    rgba(255, 194, 26, 0.06) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 /* ---- Sticky nav states ---- */
-
-/* Solid nav (interior pages): dark ink text on parchment. */
+#site-header.is-solid {
+  background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-hairline);
+}
 #site-header.is-solid .brand-text,
 #site-header.is-solid .nav-link {
-  color: var(--color-graphite);
-}
-#site-header.is-solid .brand-text {
-  color: var(--color-ink);
+  color: var(--color-mist);
 }
 #site-header.is-solid .nav-link:hover {
-  color: var(--color-ink);
+  color: var(--color-snow);
 }
 
-/* Hero nav (home): transparent over the dark hero band, light text. */
 #site-header.is-hero {
   background: transparent;
   border-color: transparent;
 }
 #site-header.is-hero .brand-text,
 #site-header.is-hero .nav-link {
-  color: rgba(232, 239, 236, 0.85);
+  color: rgba(244, 246, 248, 0.82);
 }
 #site-header.is-hero .nav-link:hover {
   color: #fff;
 }
-
-/* Hero nav after scrolling past the hero: becomes solid parchment. */
 #site-header.is-hero.scrolled {
-  background: color-mix(in srgb, var(--color-parchment) 92%, transparent);
-  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-hairline);
 }
 #site-header.is-hero.scrolled .brand-text,
 #site-header.is-hero.scrolled .nav-link {
-  color: var(--color-graphite);
-}
-#site-header.is-hero.scrolled .brand-text {
-  color: var(--color-ink);
+  color: var(--color-mist);
 }
 #site-header.is-hero.scrolled .nav-link:hover {
-  color: var(--color-ink);
+  color: var(--color-snow);
 }
 
-/* Because the header is fixed, interior pages need top offset. Home
-   supplies its own hero spacing. */
+/* Fixed header offset for interior pages */
 body:not(.has-hero) main {
   padding-top: 5rem;
 }
@@ -217,11 +245,35 @@ body:not(.has-hero) main {
 }
 .card-lift:hover {
   transform: translateY(-3px);
-  border-color: var(--color-spruce);
+  border-color: var(--color-orange);
 }
 
-/* ---- Hairline rule used as section separators (dossier ruling) ---- */
-.dossier-rule {
+/* ---- Hairline rule ---- */
+.rule {
   border: 0;
   border-top: 1px solid var(--color-hairline);
+}
+
+/* ---- Live/charge pulse (yellow signal) ---- */
+@keyframes charge-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.charge-pulse {
+  animation: charge-pulse 2.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .charge-pulse { animation: none; opacity: 1; }
+}
+
+/* ---- Animated energy-flow edge (for the demonstration schematic) ---- */
+@keyframes flow-dash {
+  to { stroke-dashoffset: -24; }
+}
+.flow-edge {
+  stroke-dasharray: 4 8;
+  animation: flow-dash 1.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-edge { animation: none; }
 }

@@ -1,0 +1,159 @@
+---
+import Main from "@/layouts/Main.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import TokenCard from "@/components/TokenCard.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import Placeholder from "@/components/Placeholder.astro";
+---
+
+<Main
+  title="Protocol - Sovereign InfraFi for Canadian energy and compute"
+  description="A two-sided credit protocol: CADS synthetic dollar, sCADS staked yield, CROWN governance. Asset-backed by Canadian energy and compute. The Northern Queue redemption primitive."
+  activePath="/protocol"
+>
+  <PageHeader
+    eyebrow="Protocol"
+    title="Sovereign InfraFi: a two-sided credit market backed by Canadian assets."
+    lede="DAI Compute connects depositors who supply capital with builders who finance Canadian energy and compute. Loans are originated against physical assets and cashflows; positions are tokenised, transparent, and sovereign by law."
+  />
+
+  <!-- Instrument stack -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <p class="field-label" style="color: var(--color-orange);">The instrument stack</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      Three instruments, each with one job.
+    </h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <TokenCard
+        symbol="CADS"
+        name="Synthetic dollar"
+        tagline="Fully-backed synthetic Canadian dollar. The stable entry point and unit of account."
+        attributes={[
+          { k: "Analog", v: "USDai" },
+          { k: "Peg", v: "1:1 to CAD" },
+          { k: "Yield", v: "None" },
+        ]}
+      />
+      <TokenCard
+        symbol="sCADS"
+        name="Staked yield"
+        tagline="Yield-bearing counterpart. Earns from the infrastructure loan book plus idle T-bills."
+        accent="yellow"
+        attributes={[
+          { k: "Analog", v: "sUSDai" },
+          { k: "Yield", v: "Loan interest + T-bills" },
+          { k: "Redeem", v: "Northern Queue epochs" },
+        ]}
+      />
+      <TokenCard
+        symbol="CROWN"
+        name="Governance"
+        tagline="Governs collateral standards, LTV tiers, fees, and collateral-universe expansion."
+        accent="red"
+        attributes={[
+          { k: "Analog", v: "CHIP" },
+          { k: "Staking", v: "sCROWN backstop" },
+          { k: "Escrow", v: "veCROWN (considered)" },
+        ]}
+      />
+    </div>
+    <p class="field-note mt-6 text-slate/60">
+      Token names (CADS, sCADS, CROWN, sCROWN) are candidates pending live trademark and ticker validation.
+    </p>
+  </section>
+
+  <!-- The flywheel -->
+  <section class="border-y border-hairline bg-ink-2/30">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <p class="field-label" style="color: var(--color-orange);">The two-sided market</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+        Capital funds loans. Loans build assets. Assets repay capital.
+      </h2>
+      <div class="mt-10">
+        <Placeholder
+          kind="data"
+          ratio="21/9"
+          label="Two-sided market flywheel: deposit to loan to build to yield"
+          note="Sourcing brief: animated flow. Depositors supply CADS to the loan book; loans fund operators; assets generate energy + compute revenue; interest repays sCADS; enterprise buyers pay for sovereign compute. From brand-guidelines/tokenomics.md Section 5. Cursor / dataviz handoff."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Asset-backing / attestation layer -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr]">
+      <div>
+        <p class="field-label" style="color: var(--color-orange);">The backing layer</p>
+        <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
+          Energy and compute, attested and collateralised.
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-slate">
+          Beneath the credit instruments sits an attestation layer. Smart-meter
+          oracles prove that a financed asset generates verified Canadian
+          renewable energy; proof-of-compute proves that a financed node
+          provides verified Canadian compute capacity. These attestations
+          determine loan eligibility, loan-to-value, and cashflow validation.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-slate">
+          Solar-powered compute is a renewable resource: carbon-aware compute,
+          backed by real generation.
+        </p>
+      </div>
+      <div>
+        <p class="field-label" style="color: var(--color-orange);">The redemption primitive</p>
+        <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
+          The Northern Queue.
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-slate">
+          Because capital is deployed into illiquid, amortising infrastructure
+          loans, sCADS redemptions run on fixed epochs. Depositors may bid,
+          privately, for faster queue position; bids are redistributed to
+          passive stakers. If no one bids, the queue defaults to first-in,
+          first-out. The protocol never force-liquidates loans to satisfy
+          withdrawals, which prevents disorderly exits and depeg spirals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Governance + regulatory -->
+  <section class="border-t border-hairline bg-ink-2/30">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="grid gap-6 md:grid-cols-2">
+        <FeatureCard kicker="Governance" title="CROWN and stewardship" accent="red">
+          CROWN holders vote on the parameters that shape the protocol: which
+          assets qualify as collateral, loan-to-value and interest-rate tiers,
+          fees, and how the collateral universe expands. Staked CROWN (sCROWN)
+          serves as a backstop in a shortfall event.
+        </FeatureCard>
+        <FeatureCard kicker="Regulatory" title="Built for Canadian law">
+          CADS is designed as a fully-reserved payment instrument; the
+          yield-bearing sCADS is structured for the CSA Sandbox; loans use SPV
+          isolation and PPSA-perfected security. FINTRAC registration and
+          provincial energy compliance are part of the pathway.
+        </FeatureCard>
+      </div>
+      <p class="field-note mt-8 max-w-3xl text-slate/70">
+        DAI Compute is pre-launch. No token has been issued and no financial
+        product is offered. Nothing here is an offer to sell or a solicitation,
+        or investment advice. Live figures will be published only after
+        regulatory clarity.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10">
+    <h2 class="mx-auto max-w-2xl font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
+      A full technical whitepaper is in preparation.
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate">
+      Covering the instrument stack, the on-chain / off-chain interplay, the
+      Northern Queue, tokenomics, and risk. Register to be notified.
+    </p>
+    <a href="/contact" class="btn-primary mt-8 inline-flex items-center px-7 py-3.5 text-sm">
+      Request the whitepaper
+    </a>
+  </section>
+</Main>

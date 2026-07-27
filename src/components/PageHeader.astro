@@ -1,7 +1,7 @@
 ---
 /**
- * Interior page header. Field-note eyebrow + oversized display title + lede.
- * Sits on parchment with a wireframe-grid wash and a dossier rule beneath.
+ * Interior page header. Mono field-note eyebrow + oversized display title +
+ * lede, on the dark canvas with a grid wash and hero glow.
  */
 export interface Props {
   eyebrow?: string;
@@ -11,17 +11,13 @@ export interface Props {
 const { eyebrow, title, lede } = Astro.props;
 ---
 
-<header class="relative overflow-hidden border-b border-hairline">
-  <div class="wireframe-grid absolute inset-0 opacity-60"></div>
+<header class="hero-glow relative overflow-hidden border-b border-hairline">
+  <div class="tech-grid absolute inset-0 opacity-70"></div>
   <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-    {eyebrow && <p class="field-label" style="color: var(--color-spruce);">{eyebrow}</p>}
-    <h1 class="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+    {eyebrow && <p class="field-label" style="color: var(--color-orange);">{eyebrow}</p>}
+    <h1 class="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-snow sm:text-5xl lg:text-6xl">
       {title}
     </h1>
-    {
-      lede && (
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite">{lede}</p>
-      )
-    }
+    {lede && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-mist">{lede}</p>}
   </div>
 </header>

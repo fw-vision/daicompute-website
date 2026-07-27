@@ -1,0 +1,133 @@
+---
+/**
+ * GridDemo - the signature "centralised vs distributed sovereign compute"
+ * demonstration, schematic (in-repo interim) version.
+ *
+ * This is the lightweight, buildable interim of the animated demonstration
+ * specified in brand-guidelines/imagery-and-motion.md Section 2. It shows the
+ * core thesis: centralised compute serves one hot node; distributed DAI
+ * Compute lights up nodes coast to coast with animated energy-flow edges.
+ *
+ * The ambitious geographic/WebGL version (map of Canada, live telemetry
+ * cards) is a Cursor handoff; this schematic conveys the argument now.
+ * Honours prefers-reduced-motion (flow animation disabled via CSS).
+ */
+---
+
+<div class="border border-hairline bg-ink-2/40">
+  <div class="flex flex-wrap items-center justify-between gap-4 border-b border-hairline px-6 py-4">
+    <p class="field-label text-slate">Demonstration &middot; Compute topology</p>
+    <div class="inline-flex overflow-hidden rounded-none border border-hairline text-xs" role="group" aria-label="Toggle topology">
+      <button
+        type="button"
+        data-mode-btn="centralised"
+        class="mode-btn px-4 py-2 font-mono uppercase tracking-[0.12em] transition-colors"
+      >
+        Centralised
+      </button>
+      <button
+        type="button"
+        data-mode-btn="distributed"
+        class="mode-btn px-4 py-2 font-mono uppercase tracking-[0.12em] transition-colors"
+      >
+        Distributed
+      </button>
+    </div>
+  </div>
+
+  <div class="tech-grid relative">
+    <svg id="grid-demo-svg" viewBox="0 0 800 420" class="h-auto w-full" role="img" aria-label="Schematic of centralised versus distributed Canadian compute">
+      <!-- Sovereign border frame (flag red) -->
+      <rect x="16" y="16" width="768" height="388" fill="none" stroke="#d52b1e" stroke-width="1.5" stroke-opacity="0.5" />
+      <text x="28" y="38" class="lbl" fill="#8a939c" font-family="monospace" font-size="11" letter-spacing="2">CANADIAN JURISDICTION</text>
+
+      <!-- Energy sources (left column) -->
+      <g id="sources">
+        <g class="src" transform="translate(70,120)">
+          <circle r="14" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
+          <text y="34" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SOLAR</text>
+        </g>
+        <g class="src" transform="translate(70,210)">
+          <circle r="14" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
+          <text y="34" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">HYDRO</text>
+        </g>
+        <g class="src" transform="translate(70,300)">
+          <circle r="14" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
+          <text y="34" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SMR</text>
+        </g>
+      </g>
+
+      <!-- Centralised node (single hot node) -->
+      <g id="central-group">
+        <line class="flow-edge central-only" x1="84" y1="120" x2="400" y2="210" stroke="#ffc21a" stroke-width="1.5" stroke-opacity="0.6" />
+        <line class="flow-edge central-only" x1="84" y1="210" x2="400" y2="210" stroke="#ffc21a" stroke-width="1.5" stroke-opacity="0.6" />
+        <line class="flow-edge central-only" x1="84" y1="300" x2="400" y2="210" stroke="#ffc21a" stroke-width="1.5" stroke-opacity="0.6" />
+        <circle class="central-only charge-pulse" cx="400" cy="210" r="42" fill="#ff6a1a" fill-opacity="0.12" stroke="#ff6a1a" stroke-width="2" />
+        <text class="central-only" x="400" y="215" text-anchor="middle" fill="#ff8340" font-family="monospace" font-size="11">1 NODE</text>
+        <text class="central-only" x="400" y="272" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SERVES A FEW</text>
+      </g>
+
+      <!-- Distributed nodes (many, coast to coast) -->
+      <g id="dist-group">
+        <!-- edges from sources to a spread of nodes -->
+        <g stroke-width="1.2" stroke-opacity="0.5">
+          <line class="flow-edge dist-only" x1="84" y1="120" x2="300" y2="90" stroke="#ffc21a" />
+          <line class="flow-edge dist-only" x1="84" y1="120" x2="430" y2="130" stroke="#ffc21a" />
+          <line class="flow-edge dist-only" x1="84" y1="210" x2="360" y2="210" stroke="#ffc21a" />
+          <line class="flow-edge dist-only" x1="84" y1="210" x2="560" y2="180" stroke="#ffc21a" />
+          <line class="flow-edge dist-only" x1="84" y1="300" x2="330" y2="330" stroke="#ffc21a" />
+          <line class="flow-edge dist-only" x1="84" y1="300" x2="620" y2="320" stroke="#ffc21a" />
+          <line class="flow-edge dist-only" x1="430" y1="130" x2="620" y2="120" stroke="#ff6a1a" />
+          <line class="flow-edge dist-only" x1="360" y1="210" x2="560" y2="180" stroke="#ff6a1a" />
+          <line class="flow-edge dist-only" x1="330" y1="330" x2="620" y2="320" stroke="#ff6a1a" />
+        </g>
+        <!-- nodes -->
+        <g class="dist-only" fill="#ff6a1a">
+          <circle class="charge-pulse" cx="300" cy="90" r="7" />
+          <circle class="charge-pulse" cx="430" cy="130" r="7" />
+          <circle class="charge-pulse" cx="360" cy="210" r="7" />
+          <circle class="charge-pulse" cx="560" cy="180" r="7" />
+          <circle class="charge-pulse" cx="330" cy="330" r="7" />
+          <circle class="charge-pulse" cx="620" cy="120" r="7" />
+          <circle class="charge-pulse" cx="620" cy="320" r="7" />
+          <circle class="charge-pulse" cx="690" cy="220" r="7" />
+        </g>
+        <text class="dist-only" x="560" y="372" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">NODES COAST TO COAST &middot; OWNED BY CANADIANS</text>
+      </g>
+    </svg>
+
+    <div class="border-t border-hairline px-6 py-4">
+      <p id="grid-demo-caption" class="field-note text-slate">
+        Centralised: one federal supercomputer serves academic research. The rest is unserved.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mode-btn { color: var(--color-slate); background: transparent; }
+  .mode-btn[aria-pressed="true"] { color: var(--color-ink); background: var(--color-orange); }
+  /* default state handled by script; hide distributed until toggled */
+  .dist-only { display: none; }
+</style>
+
+<script is:inline>
+  (function () {
+    const svg = document.getElementById("grid-demo-svg");
+    const caption = document.getElementById("grid-demo-caption");
+    if (!svg) return;
+    const btns = document.querySelectorAll("[data-mode-btn]");
+    const captions = {
+      centralised: "Centralised: one federal supercomputer serves academic research. The rest is unserved.",
+      distributed: "Distributed: DAI Compute lights up nodes coast to coast, powered by Canadian energy, owned by Canadians.",
+    };
+    function setMode(mode) {
+      svg.querySelectorAll(".central-only").forEach((el) => (el.style.display = mode === "centralised" ? "" : "none"));
+      svg.querySelectorAll(".dist-only").forEach((el) => (el.style.display = mode === "distributed" ? "" : "none"));
+      btns.forEach((b) => b.setAttribute("aria-pressed", b.getAttribute("data-mode-btn") === mode ? "true" : "false"));
+      if (caption) caption.textContent = captions[mode];
+    }
+    btns.forEach((b) => b.addEventListener("click", () => setMode(b.getAttribute("data-mode-btn"))));
+    setMode("centralised");
+  })();
+</script>

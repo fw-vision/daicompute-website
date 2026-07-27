@@ -1,15 +1,13 @@
 ---
 /**
- * DAI Compute wordmark. Single-family, two-weight discipline: "DAI"
- * rendered in the spruce accent, "COMPUTE" in ink, tracked and set in the
- * mono field-note register to read as an infrastructure mark, not a logo.
+ * DAI Compute wordmark. "DAI" in the energetic orange accent, "Compute" in
+ * snow. Space Grotesk, tight tracking. See brand-guidelines/logo.md.
  *
- * variant="nav"    -> compact, inherits colour from nav state classes
- * variant="footer" -> footer treatment
- * variant="display"-> large stacked mark for hero / brand moments
+ * variant="nav"     -> compact, inherits colour from nav state where needed
+ * variant="display" -> large stacked mark for hero / brand moments
  */
 export interface Props {
-  variant?: "nav" | "footer" | "display";
+  variant?: "nav" | "display";
   class?: string;
 }
 const { variant = "nav", class: className = "" } = Astro.props;
@@ -18,10 +16,10 @@ const { variant = "nav", class: className = "" } = Astro.props;
 {
   variant === "display" ? (
     <span class:list={["inline-flex flex-col leading-none", className]}>
-      <span class="field-label text-graphite">Distributed AI</span>
-      <span class="mt-2 font-display text-5xl font-semibold tracking-tight">
-        <span style="color: var(--color-spruce);">DAI</span>
-        <span class="text-ink"> Compute</span>
+      <span class="field-label text-slate">Distributed AI</span>
+      <span class="mt-2 font-display text-5xl font-bold tracking-tight">
+        <span style="color: var(--color-orange);">DAI</span>
+        <span class="text-snow"> Compute</span>
       </span>
     </span>
   ) : (
@@ -31,9 +29,7 @@ const { variant = "nav", class: className = "" } = Astro.props;
         className,
       ]}
     >
-      <span style={variant === "nav" ? "color: var(--color-spruce);" : "color: var(--color-spruce);"}>
-        DAI
-      </span>
+      <span style="color: var(--color-orange);">DAI</span>
       <span>Compute</span>
     </span>
   )
