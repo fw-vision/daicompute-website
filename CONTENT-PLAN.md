@@ -28,7 +28,7 @@ instruments: **CADS** (synthetic dollar), **sCADS** (staked yield), **CROWN**
 | Protocol | `/protocol` | Built. Full instrument stack, flywheel, attestation layer, Northern Queue, governance, regulatory posture. |
 | Sovereignty | `/sovereignty` | Built. Climate stakes, LIVE ForesightScope, multi-horizon phasing, co-location model. |
 | About | `/about` | Built. Why-us, team grid, origin. |
-| Contact | `/contact` | Built. Front-end form scaffold (no backend). |
+| Contact | `/contact` | Built. Illustrative template + mailto to hello@daicompute.ca (no backend needed on static hosting). |
 
 ## Design system
 
@@ -53,7 +53,7 @@ instruments: **CADS** (synthetic dollar), **sCADS** (staked yield), **CROWN**
 - Founder/team portrait, plus the topical set (northern energy + compute). Placeholder frames in place; older topical SVGs in `src/images/topical/` from the prior build may be re-briefed or replaced.
 
 ### Backend / integrations
-- Contact form backend (`/contact` is a scaffold).
+- Contact: uses a `mailto:hello@daicompute.ca` template (GitHub Pages is static, so no server-side form). If a real submission pipeline is wanted later, add a first-party option (self-hosted handler on the Linux box) rather than a third-party form processor, given the stealth/sovereignty posture.
 - `hello@daicompute.ca` mailbox confirmation.
 
 ### Brand finalisation

@@ -43,37 +43,44 @@ import PageHeader from "@/components/PageHeader.astro";
       </div>
 
       <div class="border border-hairline bg-ink-2/50 p-8">
-        <p class="field-label" style="color: var(--color-orange);">Register interest</p>
-        <form class="mt-6 space-y-5" name="contact" onsubmit="return false;">
+        <p class="field-label" style="color: var(--color-orange);">How to structure your inquiry</p>
+        <p class="mt-4 text-sm leading-relaxed text-slate">
+          There is no form to submit yet. To reach us, email
+          <a href="mailto:hello@daicompute.ca" class="accent-link">hello@daicompute.ca</a>
+          directly. The fields below are an example of how to structure your
+          message so we can route it quickly.
+        </p>
+
+        <!-- Illustrative template. Inputs are disabled: this is an example of
+             what to include in an email, not a working form. -->
+        <div class="mt-6 space-y-5" aria-hidden="true">
           <div>
-            <label for="name" class="field-note block text-slate">Name</label>
-            <input id="name" name="name" type="text" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none" />
+            <label class="field-note block text-slate/70">Name</label>
+            <input type="text" disabled placeholder="Your name" class="mt-1.5 w-full cursor-not-allowed border border-hairline bg-ink/60 px-3.5 py-2.5 text-sm text-slate/50 placeholder:text-slate/40" />
           </div>
           <div>
-            <label for="email" class="field-note block text-slate">Email</label>
-            <input id="email" name="email" type="email" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none" />
+            <label class="field-note block text-slate/70">Email</label>
+            <input type="text" disabled placeholder="you@example.ca" class="mt-1.5 w-full cursor-not-allowed border border-hairline bg-ink/60 px-3.5 py-2.5 text-sm text-slate/50 placeholder:text-slate/40" />
           </div>
           <div>
-            <label for="role" class="field-note block text-slate">I am a</label>
-            <select id="role" name="role" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none">
-              <option>Prospective investor / depositor</option>
-              <option>Prospective borrower / node operator</option>
-              <option>Energy company</option>
-              <option>Financing partner</option>
-              <option>Enterprise compute buyer</option>
-              <option>Other</option>
-            </select>
+            <label class="field-note block text-slate/70">I am a</label>
+            <input type="text" disabled placeholder="Investor / node operator / energy company / financing partner / enterprise buyer" class="mt-1.5 w-full cursor-not-allowed border border-hairline bg-ink/60 px-3.5 py-2.5 text-sm text-slate/50 placeholder:text-slate/40" />
           </div>
           <div>
-            <label for="message" class="field-note block text-slate">Message</label>
-            <textarea id="message" name="message" rows="4" class="mt-1.5 w-full border border-hairline bg-ink px-3.5 py-2.5 text-sm text-snow focus:border-orange focus:outline-none"></textarea>
+            <label class="field-note block text-slate/70">Message</label>
+            <textarea rows="4" disabled placeholder="How you would like to participate, and any context on your energy, compute, or capital position." class="mt-1.5 w-full cursor-not-allowed border border-hairline bg-ink/60 px-3.5 py-2.5 text-sm text-slate/50 placeholder:text-slate/40"></textarea>
           </div>
-          <button type="submit" class="btn-primary w-full px-6 py-3 text-sm">Send</button>
-          <p class="field-note text-slate/60">
-            This form is a front-end scaffold. A submission backend is a launch
-            item; see CONTENT-PLAN.md.
-          </p>
-        </form>
+        </div>
+
+        <a
+          href="mailto:hello@daicompute.ca?subject=DAI%20Compute%20inquiry&body=Name%3A%20%0AEmail%3A%20%0AI%20am%20a%3A%20(investor%20%2F%20node%20operator%20%2F%20energy%20company%20%2F%20financing%20partner%20%2F%20enterprise%20buyer)%0A%0AMessage%3A%20%0A"
+          class="btn-primary mt-6 flex w-full items-center justify-center px-6 py-3 text-sm"
+        >
+          Email hello@daicompute.ca
+        </a>
+        <p class="field-note mt-3 text-slate/60">
+          Opens your email client with these fields as a template.
+        </p>
       </div>
     </div>
   </section>
