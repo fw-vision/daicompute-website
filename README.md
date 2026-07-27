@@ -7,9 +7,8 @@ infrastructure, and builders borrow against the infrastructure they build.
 Every position is backed by physical Canadian assets. Sovereignty is the
 collateral and the moat.
 
-Part of the FW.VISION constellation. The flagship stealth product for the
-Markham innovation-district play. Pre-launch and pre-regulatory (pursuing CSA
-Sandbox); no financial product is offered yet.
+Part of the FW.VISION group of ventures. Pre-launch and pre-regulatory; no
+financial product is offered yet.
 
 ## For AI agents
 
@@ -24,7 +23,7 @@ are in `docs/design/`. Architecture decisions in `docs/adr/`.
 
 ## Design
 
-USD.AI-style **dark institutional** theme on a Canada-first palette: flag red
+**Dark institutional** theme on a Canada-first palette: flag red
 `#D52B1E` (sovereignty), energetic orange `#FF6A1A` (compute / action), power
 yellow `#FFC21A` (energy) on a near-black `#0B0D0F` canvas. Space Grotesk +
 IBM Plex Mono. Full spec: `docs/brand/DESIGN.md`.
@@ -49,7 +48,7 @@ bunx astro dev        # local dev (do not leave running in CI/agents)
 
 ## Content
 
-- Brand + content source of truth: `04_Execute/DAICompute/` in the Perceptiosphere vault. Mirrored for in-repo use under `docs/brand/`.
+- Brand and content direction are maintained separately; this repo is the implementation. Design reference: `docs/brand/DESIGN.md`.
 - Gap map: `CONTENT-PLAN.md`.
 
 ## Deploy

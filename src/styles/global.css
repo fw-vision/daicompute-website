@@ -4,11 +4,10 @@
 @source "../../node_modules/@fw-vision/web-kit";
 
 /* =====================================================================
-   DAI Compute design system - Sovereign InfraFi (USD.AI-model reframing)
-   Reference class: USD.AI (institutional-dark credit protocol).
-   Palette: Canada flag red (sovereignty) + energetic orange / power yellow
-   (energy) on a deep near-black institutional canvas.
-   Full spec: 04_Execute/DAICompute/brand/brand-guidelines/
+   DAI Compute design system - dark institutional theme.
+   Palette: Canada flag red (sovereignty / capital) + energetic orange
+   (compute / action) + power yellow (energy) on a deep near-black canvas.
+   Full spec: docs/brand/DESIGN.md
    ===================================================================== */
 
 @theme {

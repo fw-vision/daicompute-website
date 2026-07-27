@@ -26,4 +26,4 @@ STYLE:
 - Honour prefers-reduced-motion in any animation.
 - Prefer editing existing components over adding new ones; match the existing dark-institutional visual language.
 
-Source of truth for brand/content is the Perceptiosphere vault (04_Execute/DAICompute/), which you do not have loaded. The docs/brand/ copies carry that content; if something conflicts, flag it rather than guessing.
+Brand and content direction are maintained separately from this repo; this repo is the website implementation. Work from docs/brand/DESIGN.md and the existing pages. Local build-spec prompts for active work live in docs/plans/ (gitignored). If something about brand or content is unclear, flag it rather than inventing it.

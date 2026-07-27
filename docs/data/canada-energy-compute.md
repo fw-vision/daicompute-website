@@ -10,7 +10,7 @@ band: landscape
 purpose: "Raw structured data for the Canada choropleth widget (Cursor handoff). Verify before publication."
 ---
 
-> MIRRORED from the Perceptiosphere vault (`04_Execute/DAICompute/landscape/canada-energy-compute-data-report.md`). Raw data for the Canada choropleth widget; Cursor should verify and extend it. Confidence graded V/R/E/U inline. Synced 2026-07-26.
+> Raw source data for the Canada energy + data-centre visualisation. Confidence graded V/R/E/U inline; verify and extend before publishing figures on the site.
 
 
 # Canada Energy and Data-Centre Infrastructure - Raw Data Report

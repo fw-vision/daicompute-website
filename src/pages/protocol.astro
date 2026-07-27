@@ -29,7 +29,7 @@ import Placeholder from "@/components/Placeholder.astro";
         name="Synthetic dollar"
         tagline="Fully-backed synthetic Canadian dollar. The stable entry point and unit of account."
         attributes={[
-          { k: "Analog", v: "USDai" },
+          { k: "Type", v: "Synthetic dollar" },
           { k: "Peg", v: "1:1 to CAD" },
           { k: "Yield", v: "None" },
         ]}
@@ -40,7 +40,7 @@ import Placeholder from "@/components/Placeholder.astro";
         tagline="Yield-bearing counterpart. Earns from the infrastructure loan book plus idle T-bills."
         accent="yellow"
         attributes={[
-          { k: "Analog", v: "sUSDai" },
+          { k: "Type", v: "Staked yield token" },
           { k: "Yield", v: "Loan interest + T-bills" },
           { k: "Redeem", v: "Northern Queue epochs" },
         ]}
@@ -51,7 +51,7 @@ import Placeholder from "@/components/Placeholder.astro";
         tagline="Governs collateral standards, LTV tiers, fees, and collateral-universe expansion."
         accent="red"
         attributes={[
-          { k: "Analog", v: "CHIP" },
+          { k: "Type", v: "Governance token" },
           { k: "Staking", v: "sCROWN backstop" },
           { k: "Escrow", v: "veCROWN (considered)" },
         ]}
@@ -74,7 +74,7 @@ import Placeholder from "@/components/Placeholder.astro";
           kind="data"
           ratio="21/9"
           label="Two-sided market flywheel: deposit to loan to build to yield"
-          note="Sourcing brief: animated flow. Depositors supply CADS to the loan book; loans fund operators; assets generate energy + compute revenue; interest repays sCADS; enterprise buyers pay for sovereign compute. From brand-guidelines/tokenomics.md Section 5. Cursor / dataviz handoff."
+          note="Sourcing brief: animated flow. Depositors supply CADS to the loan book; loans fund operators; assets generate energy + compute revenue; interest repays sCADS; enterprise buyers pay for sovereign compute. Dataviz build (see docs/plans/two-sided-market-viz)."
         />
       </div>
     </div>

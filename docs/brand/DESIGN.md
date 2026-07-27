@@ -1,12 +1,12 @@
 # DAI Compute - Design Spec (START HERE)
 
-> The single design reference for this repo. Palette, type, colour language, components, and motion. Synthesises the vault brand guidelines (`04_Execute/DAICompute/brand/brand-guidelines/colours.md` + `typography.md`) for in-repo use. Read this before any UI work. Voice/copy rules live in `voice-and-messaging.md`.
+> The single design reference for this repo: palette, type, colour language, components, and motion. Read this before any UI work. This is the source of truth for implementation; content and messaging are maintained separately.
 
 ---
 
-## 1. Reference class and posture
+## 1. Design posture
 
-USD.AI-style **institutional-dark credit protocol**, retuned to Canadian sovereignty. Dark-first, precise, engineered. Not consumer crypto, not startup-hype. The site is a credibility artifact for a stealth, pre-launch, pre-regulatory protocol.
+Institutional-dark, precise, engineered. A credibility site for a Canadian sovereign infrastructure-finance protocol. Not consumer crypto, not startup-hype. Dark-first.
 
 ---
 
@@ -17,7 +17,7 @@ Defined in `src/styles/global.css` under `@theme` and `:root`.
 ### Sovereign (red)
 | Token | Name | HEX | Role |
 |-------|------|-----|------|
-| `--color-flag-red` | Canada Flag Red | `#D52B1E` | Sovereignty, jurisdiction, the mark, key emphasis. **Not** error/danger. |
+| `--color-flag-red` | Canada Flag Red | `#D52B1E` | Sovereignty, jurisdiction, capital, the mark, key emphasis. **Not** error/danger. |
 | `--color-flag-red-deep` | Deep Sovereign | `#A81E14` | Hover/pressed on red |
 
 ### Energy (warm accents)
@@ -39,22 +39,21 @@ Defined in `src/styles/global.css` under `@theme` and `:root`.
 | `--color-mist` | `#C4CBD2` | Body text on dark |
 | `--color-snow` | `#F4F6F8` | Primary text on dark; light surfaces |
 
-Energy gradient: `--grad-energy` = orange -> yellow (`#FF6A1A` -> `#FFC21A`). Use low-opacity as a wash; full saturation only for small signal elements.
+Energy gradient: `--grad-energy` = orange -> yellow (`#FF6A1A` -> `#FFC21A`). Low-opacity as a wash; full saturation only for small signal elements.
 
-### web-kit binding
-`--wk-accent: #FF6A1A`. The `.foresight-dark` block in `global.css` is a **temporary stopgap** remapping the ForesightScope widget's light-theme greys to light values; it is removed once the widget gains a real dark theme (see `docs/design/foresightscope-dark-mode.md`).
+`--wk-accent: #FF6A1A` binds the `@fw-vision/web-kit` accent. The `.foresight-dark` block in `global.css` is a **temporary stopgap** remapping the ForesightScope widget's light-theme greys for the dark canvas; it is removed once the widget gains a real dark theme (see `docs/plans/foresightscope-dark-mode.md`, local/gitignored).
 
 ---
 
 ## 3. Colour language (the diagram convention)
 
-Consistent across GridDemo and all dataviz:
+Consistent across the GridDemo and all dataviz:
 
 - **Orange `#FF6A1A` = compute** (compute resources, node mesh, compute flows).
-- **Yellow `#FFC21A` = energy** (solar/hydro/BESS sources, energy-in flows).
-- **Flag red `#D52B1E` = sovereignty / Canadian jurisdiction** (the border frame).
+- **Yellow `#FFC21A` = energy** (solar / hydro / BESS sources, energy flows).
+- **Flag red `#D52B1E` = sovereignty / capital / Canadian jurisdiction** (the border frame; capital/depositor flows in the two-sided-market viz).
 
-Rules: red is sovereignty, never "error". Yellow is signal, used sparingly (never large fills). On any viewport, warm accents cover well under 10% of the surface; the dark canvas and neutrals carry the weight.
+Rules: red is sovereignty/capital, never "error". Yellow is signal, used sparingly (never large fills). On any viewport, warm accents cover well under 10% of the surface; the dark canvas and neutrals carry the weight.
 
 Accessibility: snow/mist on ink pass AAA; orange on ink ~5.9:1 (AA text, AAA large/UI); yellow on ink ~11:1 (AAA); flag red on ink ~3.4:1 (large/UI only, NOT body text - use red on a light surface for body).
 
@@ -63,7 +62,7 @@ Accessibility: snow/mist on ink pass AAA; orange on ink ~5.9:1 (AA text, AAA lar
 ## 4. Typography
 
 - **Display + UI + body:** Space Grotesk (400/500/600/700). Geometric-grotesque, technical.
-- **Data + labels + tickers:** IBM Plex Mono (400/500). Tabular figures for financial tables; tickers (CADS/sCADS/CROWN) always mono uppercase.
+- **Data + labels + tickers:** IBM Plex Mono (400/500). Tabular figures for financial tables; tickers (CADS / sCADS / CROWN) always mono uppercase.
 - Loaded from Google Fonts in `Main.astro`. Tokens: `--font-display`, `--font-sans`, `--font-mono`.
 
 Scale highlights: hero `display` ~4.5rem tight tracking; `field-label` = 0.7rem mono UPPERCASE tracked 0.2em (the signature eyebrow); `stat` figures large in a warm accent. Do not letterspace body copy.
@@ -77,9 +76,9 @@ Utility classes in `global.css`: `.field-label` (mono uppercase eyebrow), `.fiel
 | Component | Role |
 |-----------|------|
 | `Wordmark.astro` | "DAI" (orange) + "Compute". `variant="nav"` / `"display"`. |
-| `GridDemo.astro` | Signature demonstration: auto-cycling (5s) centralised vs distributed compute topology, animated energy/compute flows, telemetry HUD, contrast metric strip. Self-contained SVG + inline JS. |
-| `TokenCard.astro` | CADS / sCADS / CROWN spec-sheet cards (`accent="orange"|"yellow"|"red"`). |
-| `StatCounter.astro` | Verified-data stat rows. **Never** live protocol metrics (pre-CSA). |
+| `GridDemo.astro` | Signature demonstration: auto-cycling (5s) centralised vs distributed compute topology, animated energy/compute flows, telemetry HUD, contrast metric strip. Self-contained SVG + inline JS. **The reference idiom for new dataviz.** |
+| `TokenCard.astro` | CADS / sCADS / CROWN spec cards (`accent="orange"|"yellow"|"red"`). |
+| `StatCounter.astro` | Verified-data stat rows (national statistics; not live protocol metrics pre-launch). |
 | `FeatureCard.astro` | Kicker + title + body + CTA card. |
 | `StepCard.astro` | Numbered plan step. |
 | `PageHeader.astro` | Interior page header (field-label eyebrow + display title + lede) with grid wash + hero glow. |
@@ -93,12 +92,14 @@ Surfaces: dark canvas, `border-hairline` panels on `bg-ink-2`, `tech-grid` wash,
 
 - Calm, institutional. Scroll reveals subtle; CTA transitions 150-200ms; energy accents slow-pulse (2-4s) on live/charge elements only.
 - GridDemo auto-cycles with a cross-fade and a timer bar; flowing dashes on energy/compute paths.
-- **Always honour `prefers-reduced-motion`:** freeze animations to a representative static state (GridDemo shows the distributed frame statically; flows stop).
+- **Always honour `prefers-reduced-motion`:** freeze animations to a representative static state.
 
 ---
 
-## 7. Content rules that affect design (summary; full in voice-and-messaging.md)
+## 7. Content rules that affect design
 
-- **Pre-CSA / pre-launch:** no live APR/TVL/deposit/user figures; no "deposit now / launch app" button. Use "register interest". Verified national statistics only; flag or omit estimates.
-- Contact has no backend (static hosting): it uses an illustrative disabled template + `mailto:hello@daicompute.ca`.
-- Sensitive financing / partnership / dual-campus detail never appears on the site (vault `_journal/` only).
+- **Pre-launch:** no live APR/TVL/deposit/user figures; no "deposit now / launch app" button. Use "register interest". Use verified national statistics; flag or omit estimates.
+- **No crypto-hype language** (moon, DeFi as self-label, yield farming, WAGMI, HODL, degen, guaranteed returns). Yield is always tied to its real source.
+- Contact has no backend (static hosting): illustrative disabled template + `mailto:hello@daicompute.ca`.
+- Tickers (CADS / sCADS / CROWN / sCROWN) are mono, uppercase.
+- Canadian spelling; no em-dashes (restructure the sentence).

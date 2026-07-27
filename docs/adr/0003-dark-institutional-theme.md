@@ -5,7 +5,7 @@
 
 ## Context
 
-Following the USD.AI reframing (ADR 0002), the visual language needed to match the reference class (institutional-dark credit protocol) while being distinctly Canadian and distinct from the burgundy of SyncID / fw.vision.
+Following the two-sided sovereign InfraFi decision (ADR 0002), the visual language needed to read as a serious institutional credit protocol while being distinctly Canadian and distinct from the burgundy of the sibling FW.VISION and SyncID sites.
 
 ## Decision
 
@@ -23,6 +23,6 @@ Full spec: `docs/brand/DESIGN.md`.
 ## Consequences
 
 - Contrast comes from tonal depth (no shadows).
-- The `@fw-vision/widgets` ForesightScope renders light-theme colours; a `.foresight-dark` CSS stopgap remaps them for now, to be removed once the widget gains a real `theme="dark"` (see `docs/design/foresightscope-dark-mode.md`).
+- The `@fw-vision/widgets` ForesightScope renders light-theme colours; a `.foresight-dark` CSS stopgap remaps them for now, to be removed once the widget gains a real `theme="dark"`.
 - Warm accents are rationed (<10% of any viewport); the dark canvas carries the weight.
 - Accessibility: flag red on dark passes only for large text/UI, not body copy.
