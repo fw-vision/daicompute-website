@@ -1,0 +1,29 @@
+Project: DAI Compute website (daicompute.ca) - a Canadian sovereign InfraFi credit protocol's public site. Part of the FW.VISION constellation.
+
+READ FIRST, EVERY SESSION:
+- AGENTS.md (project map, stack, conventions) - this is the primary context.
+- docs/brand/DESIGN.md (palette, type, colour language, components).
+- docs/design/ (the active build handoffs for the task you were given).
+Do not act on UI or copy until you have read these.
+
+BUILD / VERIFY (non-negotiable):
+- Build with `bunx astro build` (exit 0 = compiles). NEVER `npm run build` (broken under bun install layout).
+- Install with `bun install` (needs env var GITHUB_TOKEN_FWVISION for private @fw-vision/* packages).
+- For a smoke test, run `bunx astro dev` in a BACKGROUND job, wait ~9s, capture output, then KILL it. NEVER leave a dev server running - it blocks the session.
+- A clean build is sufficient proof of compilation; the human does visual verification.
+
+HARD RULES:
+- Domain is daicompute.ca everywhere (.com is reserved for a later global expansion).
+- Pre-launch / pre-CSA: NO live financial figures (APR/TVL/deposits/users), NO "deposit now / launch app" CTA. Use "register interest". Verified national data only.
+- No crypto-hype language (moon, DeFi as self-label, yield farming, WAGMI, HODL, degen, guaranteed returns). Yield always tied to its real source.
+- Colour language: orange #FF6A1A = compute, yellow #FFC21A = energy, flag red #D52B1E = sovereignty, canvas #0B0D0F. Dark-first.
+- Tickers (CADS, sCADS, CROWN) are mono, uppercase.
+- Canadian spelling. No em-dashes (restructure the sentence).
+- Do not touch .npmrc, .github/workflows/deploy.yml, or private-package auth without reason.
+
+STYLE:
+- Clean, idiomatic TypeScript / Astro. Astro islands pattern (JS only where needed).
+- Honour prefers-reduced-motion in any animation.
+- Prefer editing existing components over adding new ones; match the existing dark-institutional visual language.
+
+Source of truth for brand/content is the Perceptiosphere vault (04_Execute/DAICompute/), which you do not have loaded. The docs/brand/ copies carry that content; if something conflicts, flag it rather than guessing.
