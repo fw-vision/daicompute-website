@@ -1,0 +1,185 @@
+---
+import Main from "@/layouts/Main.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import Placeholder from "@/components/Placeholder.astro";
+---
+
+<Main
+  title="Participate - Operate, back, or buy Canadian compute"
+  description="Three ways to participate in DAI Compute: operate a node and earn from your energy and compute, back Canadian infrastructure as an investor, or buy sovereign compute as an enterprise."
+  activePath="/participate"
+>
+  <PageHeader
+    eyebrow="Participate"
+    title="Three ways to build sovereign compute."
+    lede="DAI Compute is a three-sided network. Operators supply energy and compute, enterprise buyers create demand, and investors provide the capital that funds the hardware. Each participant reinforces the others."
+  />
+
+  <!-- Operator track -->
+  <section id="operator" class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div>
+        <p class="field-label" style="color: var(--color-spruce);">Node operator</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight">
+          Your roof generates energy. Your garage powers AI. You earn both ways.
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          Install solar panels and a compute node with zero down, financed
+          against the hardware and your future earnings. Your system produces
+          energy and AI processing beyond what your home uses. You earn from
+          both, and after the financing term you own the hardware outright.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm leading-relaxed text-graphite">
+          <li class="flex gap-3">
+            <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+            Zero-down financing, extending the proven solar-lease model to compute.
+          </li>
+          <li class="flex gap-3">
+            <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+            Install-and-forget appliance model; you do not need to be a systems administrator.
+          </li>
+          <li class="flex gap-3">
+            <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+            Earnings targeted to exceed the financing payment; conservative modelling in the open.
+          </li>
+        </ul>
+        <a href="/contact" class="accent-link field-note mt-7 inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
+          Register interest as an operator
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <Placeholder
+        kind="image"
+        ratio="4/3"
+        label="Home node operator: rooftop solar + compute node"
+        note="Sourcing brief: Canadian detached home with south-facing rooftop solar, a discreet compute node in a garage or utility room. Warm, grounded, civic. No abstract crypto imagery. Persona: Marc, Sherbrooke QC."
+      />
+    </div>
+  </section>
+
+  <!-- Investor track -->
+  <section id="investor" class="border-y border-hairline bg-parchment-2/40">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <Placeholder
+          kind="image"
+          ratio="4/3"
+          label="Investor: verifiable, asset-backed participation"
+          note="Sourcing brief: a person reviewing a clean on-chain verification view that shows which physical node their contribution funded. Tangible, transparent, not a trading screen. Persona: Priya, Toronto ON."
+        />
+        <div>
+          <p class="field-label" style="color: var(--color-spruce);">Investor</p>
+          <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight">
+            Every token backs Canadian infrastructure. Every dollar builds sovereign compute.
+          </h2>
+          <p class="mt-5 text-base leading-relaxed text-graphite">
+            Back something you can point to. Every token is traceable to
+            physical Canadian hardware on Canadian soil, and the backing is
+            auditable on chain, following the transparency patterns proven by
+            asset-backed tokens like Paxos Gold.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm leading-relaxed text-graphite">
+            <li class="flex gap-3">
+              <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+              Verify on chain exactly which node your contribution funded.
+            </li>
+            <li class="flex gap-3">
+              <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+              Utility-first design; value comes from use, not from holding.
+            </li>
+            <li class="flex gap-3">
+              <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+              A regulatory pathway underway through the CSA Sandbox.
+            </li>
+          </ul>
+          <a href="/contact" class="accent-link field-note mt-7 inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
+            Register interest as an investor
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise track -->
+  <section id="enterprise" class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div>
+        <p class="field-label" style="color: var(--color-spruce);">Enterprise buyer</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight">
+          Canadian-sovereign compute. No CLOUD Act. No foreign jurisdiction.
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          Process AI workloads on infrastructure that is Canadian in law, not
+          just in postal code. Bid on government contracts with a genuine data
+          sovereignty claim, and keep your training data under Canadian
+          jurisdiction end to end.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm leading-relaxed text-graphite">
+          <li class="flex gap-3">
+            <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+            Data residency backed by legal jurisdiction, not marketing.
+          </li>
+          <li class="flex gap-3">
+            <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+            SLA and compliance documentation for procurement.
+          </li>
+          <li class="flex gap-3">
+            <span aria-hidden="true" style="color: var(--color-spruce);">&mdash;</span>
+            Honest about network maturity: pilot phase, growing capacity.
+          </li>
+        </ul>
+        <a href="/contact" class="accent-link field-note mt-7 inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
+          Talk to us about enterprise compute
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <Placeholder
+        kind="image"
+        ratio="4/3"
+        label="Enterprise: sovereign compute for regulated workloads"
+        note="Sourcing brief: a Canadian AI team shipping a workload with a data-sovereignty compliance view. Professional, not stock-photo generic. Persona: Sarah, VP Engineering, Montreal QC."
+      />
+    </div>
+  </section>
+
+  <!-- Institutional note -->
+  <section class="border-t border-hairline bg-parchment-2/40">
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div>
+          <p class="field-label" style="color: var(--color-spruce);">Energy companies</p>
+          <p class="mt-3 text-sm leading-relaxed text-graphite">
+            Co-locate compute with your generation assets and earn several times
+            the value per MWh of selling electrons wholesale. A path from
+            commodity producer to energy-and-compute provider under a
+            Build-to-Manage model.
+          </p>
+        </div>
+        <div>
+          <p class="field-label" style="color: var(--color-spruce);">Financing partners</p>
+          <p class="mt-3 text-sm leading-relaxed text-graphite">
+            Be the solar lease of compute. Physical, resellable collateral plus
+            predictable energy-credit cash flows, in a new asset class that fits
+            your existing model and ESG mandate.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10">
+    <p class="field-label" style="color: var(--color-spruce);">First node cohort</p>
+    <h2 class="mx-auto mt-4 max-w-2xl font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+      Back Canadian compute. Join the first node cohort.
+    </h2>
+    <a
+      href="/contact"
+      class="mt-8 inline-flex items-center px-7 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+      style="background-color: var(--color-spruce);"
+    >
+      Register your interest
+    </a>
+  </section>
+</Main>

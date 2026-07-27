@@ -1,0 +1,53 @@
+---
+/**
+ * A token specification card (NRG / CMP). Renders the dual-token design in a
+ * spec-sheet register: token symbol, name, and a small attribute table.
+ */
+export interface Props {
+  symbol: string; // "NRG" | "CMP"
+  name: string;
+  tagline: string;
+  attributes: Array<{ k: string; v: string }>;
+  dark?: boolean;
+}
+const { symbol, name, tagline, attributes, dark = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex flex-col border p-8",
+    dark ? "border-white/15 bg-slate-2/70" : "border-hairline bg-parchment",
+  ]}
+>
+  <div class="flex items-baseline gap-3">
+    <span
+      class="font-display text-3xl font-semibold tracking-tight"
+      style={`color: ${dark ? "var(--color-spruce-bright)" : "var(--color-spruce)"};`}
+    >
+      {symbol}
+    </span>
+    <span class="field-label" style={dark ? "color: rgba(255,255,255,0.5);" : "color: var(--color-graphite);"}>
+      {name}
+    </span>
+  </div>
+  <p class:list={["mt-3 text-sm leading-relaxed", dark ? "text-white/75" : "text-graphite"]}>
+    {tagline}
+  </p>
+  <dl class="mt-6 flex flex-col gap-0">
+    {
+      attributes.map((a, i) => (
+        <div
+          class:list={[
+            "flex justify-between gap-6 py-2.5 text-sm",
+            i > 0 && (dark ? "border-t border-white/10" : "border-t border-hairline"),
+          ]}
+        >
+          <dt class="field-note shrink-0" style={dark ? "color: rgba(255,255,255,0.45);" : "color: var(--color-graphite);"}>
+            {a.k}
+          </dt>
+          <dd class:list={["text-right", dark ? "text-white/85" : "text-ink"]}>{a.v}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>

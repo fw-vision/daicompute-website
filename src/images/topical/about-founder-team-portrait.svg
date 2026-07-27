@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#ece6d9"/>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0 L0 0 0 32" fill="none" stroke="#47554f" stroke-width="1" opacity="0.14"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <rect x="24" y="24" width="1232" height="672" fill="none" stroke="#2f6f5b" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="640" y="220" text-anchor="middle" font-family="monospace" font-size="22" letter-spacing="4" fill="#2f6f5b">IMAGE NEEDED &#8212; SOURCING BRIEF</text>
+  <text text-anchor="middle" font-family="monospace" font-size="24" fill="#1a2320">
+    <tspan x='640' y='300'>PHOTO: Grounded founder/team portrait.</tspan>
+    <tspan x='640' y='334'>Infrastructure register, owned photography.</tspan>
+  </text>
+  <text x="640" y="640" text-anchor="middle" font-family="monospace" font-size="16" letter-spacing="2" fill="#47554f">about-founder-team-portrait.svg</text>
+</svg>

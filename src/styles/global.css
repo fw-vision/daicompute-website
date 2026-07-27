@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Scan the web-kit components so their Tailwind utility classes are generated */
+@source "../../node_modules/@fw-vision/web-kit";
+
+/* =====================================================================
+   DAI Compute design system
+   Reference: Pravah (engineering dossier on warm parchment; full-bleed
+   dark inversions; wireframe grid illustration; uppercase tracked
+   field-note labels; single-family two-weight type; contrast through
+   tonal inversion, not chroma).
+   Retuned to DAI Compute's own sovereign palette: warm parchment canvas,
+   deep slate-teal inversion band (in place of Pravah aubergine), and a
+   sovereign spruce-green accent (energy + northern), distinct from the
+   burgundy of SyncID / fw.vision. Brands are related-but-distinct.
+   ===================================================================== */
+
+@theme {
+  /* Single-family, two-weight type discipline. IBM Plex Sans reads as an
+     engineering / infrastructure register; IBM Plex Mono for field-note
+     labels and data. */
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Restrained display scale (dossier, not billboard) */
+  --text-display: 4.25rem; /* ~68px */
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-display-sm: 2.75rem;
+  --text-display-sm--line-height: 1.08;
+  --text-display-sm--letter-spacing: -0.015em;
+
+  /* Palette: warm parchment + slate-teal ink + spruce accent */
+  --color-parchment: #f3efe6; /* warm parchment canvas */
+  --color-parchment-2: #ece6d9; /* slightly deeper parchment for cards */
+  --color-ink: #1a2320; /* near-black with a green-slate cast */
+  --color-graphite: #47554f; /* muted slate-green graphite */
+  --color-hairline: #d6cfbf; /* warm hairline on parchment */
+  --color-slate: #16211f; /* deep slate-teal for inversion bands */
+  --color-slate-2: #1f2d2a; /* card on the dark band */
+  --color-spruce: #2f6f5b; /* sovereign spruce-green accent */
+  --color-spruce-bright: #4a9d82; /* brighter spruce for dark-band signal */
+}
+
+/* DAI Compute accent + neutrals, consumed by web-kit components via --wk-*.
+   Declared AFTER web-kit tokens.css import so these values win, including
+   over web-kit's prefers-color-scheme dark block. */
+:root {
+  --wk-accent: #2f6f5b; /* spruce */
+  --wk-ink: #1a2320;
+  --wk-graphite: #47554f;
+  --wk-hairline: #d6cfbf;
+  --wk-canvas: #f3efe6;
+  --wk-paper: #ece6d9;
+}
+
+/* Hold the parchment scheme regardless of OS dark-mode preference. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wk-ink: #1a2320;
+    --wk-graphite: #47554f;
+    --wk-hairline: #d6cfbf;
+    --wk-canvas: #f3efe6;
+    --wk-paper: #ece6d9;
+  }
+}
+
+/* ---- Base typography ---- */
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-parchment);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+/* Uppercase tracked field-note label (the Pravah signature) */
+.field-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Monospace field-note (numbers, coordinates, callouts) */
+.field-note {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+a {
+  text-underline-offset: 2px;
+}
+
+.accent-link {
+  color: var(--color-spruce);
+  position: relative;
+}
+.accent-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.accent-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* =====================================================================
+   Wireframe grid illustration surface (the Pravah engineering-drawing
+   motif). Used behind heroes and diagram placeholders.
+   ===================================================================== */
+.wireframe-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-graphite) 14%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-graphite) 14%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.wireframe-grid--dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* =====================================================================
+   Full-bleed dark inversion band. Contrast through tonal inversion, not
+   chroma (parchment <-> slate-teal). One brighter spruce for signal.
+   ===================================================================== */
+.invert-band {
+  background: var(--color-slate);
+  color: #e8efec;
+}
+.invert-band .field-label {
+  color: var(--color-spruce-bright);
+}
+.invert-band a.accent-link {
+  color: var(--color-spruce-bright);
+}
+
+/* ---- Sticky nav states ---- */
+
+/* Solid nav (interior pages): dark ink text on parchment. */
+#site-header.is-solid .brand-text,
+#site-header.is-solid .nav-link {
+  color: var(--color-graphite);
+}
+#site-header.is-solid .brand-text {
+  color: var(--color-ink);
+}
+#site-header.is-solid .nav-link:hover {
+  color: var(--color-ink);
+}
+
+/* Hero nav (home): transparent over the dark hero band, light text. */
+#site-header.is-hero {
+  background: transparent;
+  border-color: transparent;
+}
+#site-header.is-hero .brand-text,
+#site-header.is-hero .nav-link {
+  color: rgba(232, 239, 236, 0.85);
+}
+#site-header.is-hero .nav-link:hover {
+  color: #fff;
+}
+
+/* Hero nav after scrolling past the hero: becomes solid parchment. */
+#site-header.is-hero.scrolled {
+  background: color-mix(in srgb, var(--color-parchment) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-hairline);
+}
+#site-header.is-hero.scrolled .brand-text,
+#site-header.is-hero.scrolled .nav-link {
+  color: var(--color-graphite);
+}
+#site-header.is-hero.scrolled .brand-text {
+  color: var(--color-ink);
+}
+#site-header.is-hero.scrolled .nav-link:hover {
+  color: var(--color-ink);
+}
+
+/* Because the header is fixed, interior pages need top offset. Home
+   supplies its own hero spacing. */
+body:not(.has-hero) main {
+  padding-top: 5rem;
+}
+
+/* ---- Card hover lift ---- */
+.card-lift {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-spruce);
+}
+
+/* ---- Hairline rule used as section separators (dossier ruling) ---- */
+.dossier-rule {
+  border: 0;
+  border-top: 1px solid var(--color-hairline);
+}

@@ -1,0 +1,40 @@
+---
+/**
+ * DAI Compute wordmark. Single-family, two-weight discipline: "DAI"
+ * rendered in the spruce accent, "COMPUTE" in ink, tracked and set in the
+ * mono field-note register to read as an infrastructure mark, not a logo.
+ *
+ * variant="nav"    -> compact, inherits colour from nav state classes
+ * variant="footer" -> footer treatment
+ * variant="display"-> large stacked mark for hero / brand moments
+ */
+export interface Props {
+  variant?: "nav" | "footer" | "display";
+  class?: string;
+}
+const { variant = "nav", class: className = "" } = Astro.props;
+---
+
+{
+  variant === "display" ? (
+    <span class:list={["inline-flex flex-col leading-none", className]}>
+      <span class="field-label text-graphite">Distributed AI</span>
+      <span class="mt-2 font-display text-5xl font-semibold tracking-tight">
+        <span style="color: var(--color-spruce);">DAI</span>
+        <span class="text-ink"> Compute</span>
+      </span>
+    </span>
+  ) : (
+    <span
+      class:list={[
+        "brand-text inline-flex items-baseline gap-1.5 font-display font-semibold tracking-tight",
+        className,
+      ]}
+    >
+      <span style={variant === "nav" ? "color: var(--color-spruce);" : "color: var(--color-spruce);"}>
+        DAI
+      </span>
+      <span>Compute</span>
+    </span>
+  )
+}

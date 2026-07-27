@@ -1,0 +1,254 @@
+---
+import Main from "@/layouts/Main.astro";
+import Wordmark from "@/components/Wordmark.astro";
+import StatCounter from "@/components/StatCounter.astro";
+import StepCard from "@/components/StepCard.astro";
+import TokenCard from "@/components/TokenCard.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import Placeholder from "@/components/Placeholder.astro";
+---
+
+<Main
+  title="DAI Compute - Sovereign energy and AI compute infrastructure for Canada"
+  description="A Canadian protocol for building sovereign energy and AI compute infrastructure. Asset-backed, community-operated, and verifiable. Infrastructure with blockchain accounting."
+  activePath="/"
+  heroNav={true}
+>
+  <!-- Hero: full-bleed dark inversion band with wireframe grid -->
+  <section class="invert-band relative overflow-hidden">
+    <div class="wireframe-grid--dark absolute inset-0"></div>
+    <div
+      class="relative mx-auto max-w-7xl px-6 pb-24 pt-40 sm:pt-48 lg:px-10 lg:pb-32"
+    >
+      <p class="field-label" style="color: var(--color-spruce-bright);">
+        Distributed AI Compute &middot; Canada
+      </p>
+      <h1
+        class="mt-8 max-w-4xl font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl lg:text-[4.25rem]"
+      >
+        Canada has the energy and the talent. This is the missing mechanism.
+      </h1>
+      <p class="mt-8 max-w-2xl text-lg leading-relaxed text-white/75">
+        DAI Compute lets Canadians invest in, build, and operate sovereign
+        energy and AI compute infrastructure. Every token is backed by physical
+        Canadian hardware. Every contribution is verifiable on-chain.
+      </p>
+      <div class="mt-11 flex flex-wrap items-center gap-6">
+        <a
+          href="/participate"
+          class="inline-flex items-center px-7 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          style="background-color: var(--color-spruce);"
+        >
+          Back Canadian compute
+        </a>
+        <a href="/how-it-works" class="text-sm font-medium text-white/80 transition-colors hover:text-white">
+          Learn how asset-backed compute works &rarr;
+        </a>
+      </div>
+
+      <!-- Verified national stats -->
+      <div class="mt-20 border-t border-white/10 pt-10">
+        <StatCounter
+          dark={true}
+          stats={[
+            { value: "0", label: "Canadian systems in the global top 50", source: "TOP500, Nov 2024" },
+            { value: "$0.05", label: "per kWh industrial power in Quebec", source: "Hydro-Quebec" },
+            { value: "140,000+", label: "AI professionals excluded from public compute", source: "Budget 2024" },
+            { value: "~100:1", label: "US to Canada sovereign-compute investment", source: "CHIPS Act vs. Budget 2024" },
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- The gap: problem framing, no technology yet -->
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+    <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+      <div>
+        <p class="field-label" style="color: var(--color-spruce);">The gap</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          Canada trains the world&rsquo;s best AI talent, then watches it leave.
+        </h2>
+      </div>
+      <div class="max-w-2xl space-y-5 text-base leading-relaxed text-graphite">
+        <p>
+          The federal government spent $705M to build one centralised
+          supercomputer for academic researchers. That serves the frontier of
+          basic research. It does not address the 140,000 professionals in
+          industry, the startups, or the citizens who want to participate.
+        </p>
+        <p>
+          Meanwhile, the cheapest clean energy in the G7 powers foreign-owned
+          data centres, and every Canadian business on a foreign cloud carries
+          CLOUD Act exposure. The assets exist. What is missing is the
+          mechanism to put them together.
+        </p>
+        <a href="/problem" class="accent-link field-note inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
+          Read the full problem
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The mechanism: three-step plan -->
+  <section class="border-y border-hairline bg-parchment-2/40">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <p class="field-label" style="color: var(--color-spruce);">The plan</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+        Infrastructure with blockchain accounting. Three steps.
+      </h2>
+      <div class="mt-14 grid gap-6 md:grid-cols-3">
+        <StepCard index="01" title="Join the network">
+          As an operator earning from your solar and compute, an investor
+          backing Canadian infrastructure, or an enterprise buyer accessing
+          sovereign compute.
+        </StepCard>
+        <StepCard index="02" title="Every dollar backs Canadian hardware">
+          Your participation funds physical infrastructure on Canadian soil,
+          under Canadian law: solar panels, batteries, and compute hardware.
+          Every token is traceable to a real asset.
+        </StepCard>
+        <StepCard index="03" title="Use the network or earn from it">
+          Enterprise buyers access sovereign compute. Operators earn from
+          providing energy and processing. Investors watch their capital build
+          tangible national capability.
+        </StepCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual token spec sheet -->
+  <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+    <div class="max-w-3xl">
+      <p class="field-label" style="color: var(--color-spruce);">The accounting layer</p>
+      <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+        Two tokens. Both asset-backed. Both burned on use.
+      </h2>
+      <p class="mt-5 text-base leading-relaxed text-graphite">
+        Tokens enter circulation through productive activity and exit through
+        consumption. Holding provides no yield; using provides service access.
+        This is Burn-Mint Equilibrium: no inflation, no deflation, no
+        speculation incentive.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <TokenCard
+        symbol="NRG"
+        name="Energy credit"
+        tagline="Minted on verified renewable generation. Burned on consumption or exchanged for compute."
+        attributes={[
+          { k: "Minting", v: "Verified generation (smart-meter oracle)" },
+          { k: "Burning", v: "On energy use or AMM exchange" },
+          { k: "Basis", v: "Verified Canadian renewable energy" },
+          { k: "Class", v: "Utility (consumptive)" },
+        ]}
+      />
+      <TokenCard
+        symbol="CMP"
+        name="Compute credit"
+        tagline="Minted when GPU/CPU capacity is staked. Burned when enterprise buyers process workloads."
+        attributes={[
+          { k: "Minting", v: "Staked capacity (proof-of-compute)" },
+          { k: "Burning", v: "On compute access" },
+          { k: "Basis", v: "Verified Canadian compute capacity" },
+          { k: "Class", v: "Utility (consumptive)" },
+        ]}
+      />
+    </div>
+    <div class="mt-6">
+      <Placeholder
+        kind="data"
+        ratio="21/9"
+        label="NRG / CMP Burn-Mint Equilibrium diagram"
+        note="Sourcing brief: schematic showing NRG minted from generation and CMP minted from compute provision, meeting in an AMM pool, both burned on use. Clean spec-sheet style, spruce accent on flows, no crypto iconography."
+      />
+    </div>
+  </section>
+
+  <!-- Three faces of the hero -->
+  <section class="border-t border-hairline bg-parchment-2/40">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <p class="field-label" style="color: var(--color-spruce);">Who participates</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+        Canadians who believe national infrastructure should be owned by its people.
+      </h2>
+      <div class="mt-14 grid gap-6 md:grid-cols-3">
+        <FeatureCard kicker="Node operator" title="Your roof generates energy. Your node powers AI." href="/participate" cta="Operator economics">
+          Install solar and a compute node with zero down, financed against the
+          hardware and your earnings. Your system produces both energy and
+          processing; you earn from both.
+        </FeatureCard>
+        <FeatureCard kicker="Investor" title="Back something real, not another promise." href="/participate" cta="How backing works">
+          Every token backs Canadian infrastructure you can point to. Verify on
+          chain exactly which node your contribution funded, and watch it
+          generate energy and compute.
+        </FeatureCard>
+        <FeatureCard kicker="Enterprise" title="Canadian-sovereign compute. No CLOUD Act." href="/participate" cta="For enterprise buyers">
+          Process AI workloads on infrastructure that is genuinely Canadian in
+          law, not just in postal code. Verifiably backed, cost-competitive,
+          free of foreign jurisdiction.
+        </FeatureCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sovereignty teaser -->
+  <section class="invert-band relative overflow-hidden">
+    <div class="wireframe-grid--dark absolute inset-0 opacity-70"></div>
+    <div class="relative mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <p class="field-label" style="color: var(--color-spruce-bright);">The long horizon</p>
+          <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+            The first vehicle on a fifty-year journey.
+          </h2>
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-white/75">
+            By 2080, up to 3.7 billion people may live outside the human climate
+            niche. Canada is the second largest country on Earth, sparsely
+            populated, sitting in the temperature zone people will move toward.
+            Sovereign energy and compute is the settlement foundation for the
+            Canada that is arriving.
+          </p>
+          <a href="/sovereignty" class="accent-link field-note mt-7 inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
+            See the sovereignty trajectory
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        <div>
+          <Placeholder
+            kind="data"
+            dark={true}
+            ratio="4/3"
+            label="ForesightScope preview: the sovereignty cone"
+            note="Live ForesightScope renders on the Sovereignty page. This preview slot can hold a static cover render of the preferred trajectory reaching economic sovereignty at H3."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10">
+    <p class="field-label" style="color: var(--color-spruce);">Join the first node cohort</p>
+    <h2 class="mx-auto mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+      Back Canadian economic sovereignty.
+    </h2>
+    <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-graphite">
+      We are building the mechanism that connects Canadian energy to Canadian
+      compute, and lets Canadians own the result.
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-5">
+      <a
+        href="/participate"
+        class="inline-flex items-center px-7 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        style="background-color: var(--color-spruce);"
+      >
+        Join the cohort
+      </a>
+      <a href="/contact" class="inline-flex items-center border border-graphite/40 px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:border-ink">
+        Talk to the team
+      </a>
+    </div>
+  </section>
+</Main>

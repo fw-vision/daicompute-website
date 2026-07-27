@@ -1,0 +1,27 @@
+---
+/**
+ * Interior page header. Field-note eyebrow + oversized display title + lede.
+ * Sits on parchment with a wireframe-grid wash and a dossier rule beneath.
+ */
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+}
+const { eyebrow, title, lede } = Astro.props;
+---
+
+<header class="relative overflow-hidden border-b border-hairline">
+  <div class="wireframe-grid absolute inset-0 opacity-60"></div>
+  <div class="relative mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+    {eyebrow && <p class="field-label" style="color: var(--color-spruce);">{eyebrow}</p>}
+    <h1 class="mt-4 max-w-4xl font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+      {title}
+    </h1>
+    {
+      lede && (
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite">{lede}</p>
+      )
+    }
+  </div>
+</header>

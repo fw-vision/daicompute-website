@@ -1,0 +1,111 @@
+---
+import Main from "@/layouts/Main.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import Placeholder from "@/components/Placeholder.astro";
+
+const team = [
+  { name: "Francis Wang", role: "Founder", note: "Over a decade in renewable energy software; patent holder in distributed energy management. Doctoral research in long-term innovation, applying futures research and strategic foresight." },
+  { name: "Maria", role: "Systems architecture", note: "Systems architecture and operational scaling." },
+  { name: "Arwin", role: "AIOps", note: "Seasoned AIOps engineer; formerly at Cruise on autonomous-vehicle data processing." },
+  { name: "Alex", role: "Design", note: "Leads design on AI products at RBC." },
+  { name: "James", role: "Platform engineering", note: "Platform engineer with a decade of digital transformation experience." },
+  { name: "William", role: "Financial governance", note: "Four decades of financial governance and network, including Merrill Lynch." },
+];
+---
+
+<Main
+  title="About - The team building sovereign compute"
+  description="DAI Compute combines AI systems architecture, foresight methodology, energy economics, and financial governance. One early company within a coalition building sovereign infrastructure for Canada."
+  activePath="/about"
+>
+  <PageHeader
+    eyebrow="About"
+    title="One early company within a long coalition."
+    lede="DAI Compute is the first vehicle in a programme called Sovereign Energy and AI Infrastructure Canada. We combine AI systems architecture, foresight methodology, energy economics, and financial governance."
+  />
+
+  <!-- Why us -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[1fr_1fr]">
+      <div>
+        <p class="field-label" style="color: var(--color-spruce);">Why us</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight">
+          Proof of alignment, not just an idea.
+        </h2>
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-graphite">
+          <p>
+            The team combines the disciplines this problem requires: renewable
+            energy software and distributed energy management, futures research
+            and strategic foresight, AIOps and platform engineering, product
+            design, and decades of financial governance.
+          </p>
+          <p>
+            We recently submitted to an ISED call for proposals, a blockchain
+            solution built on government-verified suppliers. That submission is
+            our proof of alignment with the federal approach to sovereign AI.
+          </p>
+        </div>
+      </div>
+      <Placeholder
+        kind="image"
+        ratio="4/3"
+        label="Founder and team portrait"
+        note="Sourcing brief: grounded, professional founder portrait or small team image. Infrastructure register, not startup-hype. Owned photography preferred."
+      />
+    </div>
+  </section>
+
+  <!-- Team grid -->
+  <section class="border-y border-hairline bg-parchment-2/40">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <p class="field-label" style="color: var(--color-spruce);">The team</p>
+      <h2 class="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight">
+        The disciplines this problem requires.
+      </h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          team.map((m) => (
+            <div class="border border-hairline bg-parchment p-6">
+              <h3 class="font-display text-lg font-semibold">{m.name}</h3>
+              <p class="field-label mt-1" style="color: var(--color-spruce);">{m.role}</p>
+              <p class="mt-3 text-sm leading-relaxed text-graphite">{m.note}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Constellation note -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <div class="max-w-3xl">
+      <p class="field-label" style="color: var(--color-spruce);">Origin</p>
+      <h2 class="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+        From a Cooperathon idea to a fifty-year programme.
+      </h2>
+      <p class="mt-5 text-base leading-relaxed text-graphite">
+        DAI Compute began in the Cooperathon 2026 Prosperity Track as a way to
+        connect Canadian energy to Canadian compute. It draws on the foresight
+        methodology and Trajectory Storylines developed at FW.VISION, and sits
+        within a coalition of ventures building sovereign infrastructure across
+        many years.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="border-t border-hairline">
+    <div class="mx-auto max-w-7xl px-6 py-16 text-center lg:px-10">
+      <h2 class="mx-auto max-w-2xl font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+        Want to build this with us?
+      </h2>
+      <a
+        href="/contact"
+        class="mt-8 inline-flex items-center px-7 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        style="background-color: var(--color-spruce);"
+      >
+        Start a conversation
+      </a>
+    </div>
+  </section>
+</Main>

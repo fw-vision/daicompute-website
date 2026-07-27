@@ -1,0 +1,41 @@
+---
+/**
+ * Stat counter row, dossier register. Large figure + mono field-note label.
+ * Every value should be a VERIFIED number (the brand voice mandate). Unverified
+ * figures must be hedged in the label or omitted.
+ */
+export interface Props {
+  stats: Array<{ value: string; label: string; source?: string }>;
+  dark?: boolean;
+  cols?: 2 | 3 | 4;
+}
+const { stats, dark = false, cols = 4 } = Astro.props;
+const colClass = {
+  2: "grid-cols-1 sm:grid-cols-2",
+  3: "grid-cols-2 md:grid-cols-3",
+  4: "grid-cols-2 md:grid-cols-4",
+}[cols];
+---
+
+<div class:list={["grid gap-8", colClass]}>
+  {
+    stats.map((s) => (
+      <div>
+        <div
+          class="font-display text-4xl font-semibold tracking-tight sm:text-5xl"
+          style={dark ? "color: var(--color-spruce-bright);" : "color: var(--color-spruce);"}
+        >
+          {s.value}
+        </div>
+        <div class:list={["mt-2 text-sm font-medium", dark ? "text-white/70" : "text-graphite"]}>
+          {s.label}
+        </div>
+        {s.source && (
+          <div class:list={["field-note mt-1", dark ? "text-white/40" : "text-graphite/50"]}>
+            {s.source}
+          </div>
+        )}
+      </div>
+    ))
+  }
+</div>

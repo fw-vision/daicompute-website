@@ -1,0 +1,49 @@
+---
+/**
+ * A labelled placeholder frame. Makes a content / image / dataviz gap
+ * VISIBLE and plannable rather than hiding it behind filler. Use during the
+ * scaffold phase; replace with real media / copy before launch.
+ *
+ * Rendered in the Pravah wireframe-grid idiom so gaps read as
+ * engineering-drawing slots, not broken images.
+ *
+ * kind="image" -> a framed box describing the image to source
+ * kind="video" -> same, for a video / loop
+ * kind="copy"  -> a block describing copy to write
+ * kind="data"  -> a slot for a chart / diagram / map / dataviz
+ */
+export interface Props {
+  kind?: "image" | "video" | "copy" | "data";
+  label: string;
+  note?: string;
+  ratio?: string; // e.g. "16/9", "4/3", "1/1"
+  dark?: boolean;
+}
+const { kind = "image", label, note, ratio = "16/9", dark = false } = Astro.props;
+
+const kindLabel = {
+  image: "Image needed",
+  video: "Video needed",
+  copy: "Copy needed",
+  data: "Data / diagram needed",
+}[kind];
+---
+
+<div
+  class:list={[
+    "placeholder-frame flex flex-col items-center justify-center border border-dashed p-6 text-center",
+    dark
+      ? "wireframe-grid--dark border-white/25 bg-white/[0.03] text-white/70"
+      : "wireframe-grid border-graphite/30 bg-parchment-2/40 text-graphite/80",
+  ]}
+  style={`aspect-ratio: ${ratio};`}
+  data-placeholder={kind}
+>
+  <span class="field-label" style={`color: ${dark ? "var(--color-spruce-bright)" : "var(--color-spruce)"};`}>
+    {kindLabel}
+  </span>
+  <span class="mt-3 max-w-md font-display text-base font-medium leading-snug">
+    {label}
+  </span>
+  {note && <span class="field-note mt-2 max-w-sm leading-relaxed opacity-70">{note}</span>}
+</div>

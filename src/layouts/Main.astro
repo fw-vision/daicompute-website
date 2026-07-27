@@ -1,0 +1,144 @@
+---
+import "../styles/global.css";
+import "@fw-vision/web-kit/styles/tokens.css";
+import "@fw-vision/web-kit/styles/annotation-tokens.css";
+import Wordmark from "../components/Wordmark.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  activePath?: string;
+  /** When true, the nav starts transparent over a dark hero and turns solid on scroll. */
+  heroNav?: boolean;
+}
+
+const {
+  title,
+  description = "Distributed AI Compute. A Canadian protocol for sovereign energy and AI compute infrastructure, asset-backed and community-operated.",
+  activePath = "",
+  heroNav = false,
+} = Astro.props;
+
+const navLinks = [
+  { label: "The Problem", href: "/problem" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Participate", href: "/participate" },
+  { label: "Sovereignty", href: "/sovereignty" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class:list={["antialiased", heroNav && "has-hero"]}>
+    <header
+      id="site-header"
+      data-hero-nav={heroNav ? "true" : "false"}
+      class:list={[
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        heroNav
+          ? "is-hero"
+          : "is-solid border-b border-hairline bg-parchment/90 backdrop-blur",
+      ]}
+    >
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+        <a href="/" class="site-brand" aria-label="DAI Compute home">
+          <Wordmark variant="nav" class="text-lg" />
+        </a>
+        <nav class="hidden items-center gap-7 lg:flex">
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="nav-link text-sm transition-colors"
+                aria-current={activePath === link.href ? "page" : undefined}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+        <a
+          href="/participate"
+          class="hidden rounded-none border border-current px-4 py-2 text-xs font-medium uppercase tracking-[0.16em] transition-colors lg:inline-block nav-link"
+        >
+          Join the cohort
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="invert-band mt-28">
+      <div class="wireframe-grid--dark border-t border-white/10">
+        <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+          <div class="flex flex-col justify-between gap-10 md:flex-row">
+            <div class="max-w-sm">
+              <span class="font-display text-2xl font-semibold tracking-tight">
+                <span style="color: var(--color-spruce-bright);">DAI</span> Compute
+              </span>
+              <p class="mt-4 text-sm leading-relaxed text-white/65">
+                A Canadian protocol for sovereign energy and AI compute
+                infrastructure. Every token backed by physical Canadian assets;
+                every contribution verifiable.
+              </p>
+              <p class="field-note mt-5 text-white/40">
+                Infrastructure with blockchain accounting. Complementary to the
+                federal Sovereign Compute programme, not competitive with it.
+              </p>
+            </div>
+            <nav class="flex flex-col gap-2.5 text-sm text-white/70">
+              <a href="/problem" class="transition-colors hover:text-white">The Problem</a>
+              <a href="/how-it-works" class="transition-colors hover:text-white">How It Works</a>
+              <a href="/participate" class="transition-colors hover:text-white">Participate</a>
+              <a href="/sovereignty" class="transition-colors hover:text-white">Sovereignty</a>
+              <a href="/about" class="transition-colors hover:text-white">About</a>
+              <a href="/contact" class="transition-colors hover:text-white">Contact</a>
+            </nav>
+          </div>
+          <p class="field-note mt-12 text-white/40">
+            &copy; {year} DAI Compute. Backing Canadian economic sovereignty.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        const header = document.getElementById("site-header");
+        if (!header || header.dataset.heroNav !== "true") return;
+        const threshold = 120;
+        const sync = () => {
+          if (window.scrollY > threshold) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        };
+        sync();
+        window.addEventListener("scroll", sync, { passive: true });
+      })();
+    </script>
+  </body>
+</html>
