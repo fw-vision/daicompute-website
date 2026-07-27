@@ -54,7 +54,7 @@ instruments: **CADS** (synthetic dollar), **sCADS** (staked yield), **CROWN**
 
 ### Backend / integrations
 - Contact form backend (`/contact` is a scaffold).
-- `hello@daicompute.com` mailbox confirmation.
+- `hello@daicompute.ca` mailbox confirmation.
 
 ### Brand finalisation
 - Logo/mark SVG production (spec in `brand/brand-guidelines/logo.md`); replace `public/favicon.svg` stand-in.
@@ -77,7 +77,7 @@ instruments: **CADS** (synthetic dollar), **sCADS** (staked yield), **CROWN**
 ## Deploy
 
 - Workflow: `.github/workflows/deploy.yml` (bun-based; maps `GITHUB_TOKEN_FWVISION`; `packages: read`).
-- Domain: `public/CNAME` = `daicompute.com`.
+- Domain: `public/CNAME` = `daicompute.ca`.
 - Principal actions: push to `main`, enable Pages, DNS, owned imagery, contact backend, commission the geographic demonstration + logo.
 
 ## Build

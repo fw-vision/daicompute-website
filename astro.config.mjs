@@ -22,7 +22,7 @@ export default defineConfig({
       theme: 'css-variables',
     },
   },
-  site: 'https://daicompute.com',
+  site: 'https://daicompute.ca',
   base: '/',
   integrations: [sitemap(), react()],
 });

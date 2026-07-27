@@ -1,7 +1,7 @@
 # daicompute-website
 
 Public credibility website for **DAI Compute** (Distributed AI Compute):
-daicompute.com. A Canadian protocol for sovereign energy and AI compute
+daicompute.ca. A Canadian protocol for sovereign energy and AI compute
 infrastructure, asset-backed and community-operated.
 
 Part of the FW.VISION constellation. The flagship stealth product for the
