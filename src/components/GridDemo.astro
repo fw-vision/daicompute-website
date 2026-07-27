@@ -38,41 +38,45 @@
           <stop offset="0%" stop-color="#ffc21a" />
           <stop offset="100%" stop-color="#ff6a1a" />
         </linearGradient>
-        <radialGradient id="gd-node-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ff8340" stop-opacity="0.9" />
-          <stop offset="100%" stop-color="#ff6a1a" stop-opacity="0" />
-        </radialGradient>
       </defs>
 
       <!-- Sovereign border frame (flag red) -->
       <rect x="16" y="16" width="768" height="408" fill="none" stroke="#d52b1e" stroke-width="1.5" stroke-opacity="0.5" />
       <text x="28" y="38" fill="#8a939c" font-family="monospace" font-size="11" letter-spacing="2">CANADIAN JURISDICTION</text>
 
-      <!-- Energy sources (left column) -->
+      <!-- Colour-language legend: orange = compute, yellow = energy -->
+      <g font-family="monospace" font-size="9">
+        <circle cx="34" cy="404" r="5" fill="#ff6a1a" />
+        <text x="44" y="407" fill="#8a939c">COMPUTE</text>
+        <circle cx="128" cy="404" r="5" fill="#ffc21a" />
+        <text x="138" y="407" fill="#8a939c">ENERGY</text>
+      </g>
+
+      <!-- Energy sources (left column). Yellow = energy. -->
       <g id="gd-sources">
         <g transform="translate(66,130)">
           <circle r="15" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
           <text y="0" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-family="monospace" font-size="12">&#9788;</text>
-          <text y="32" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SOLAR</text>
+          <text y="32" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SOLAR (PV)</text>
         </g>
         <g transform="translate(66,220)">
           <circle r="15" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
-          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-family="monospace" font-size="12">&#8767;</text>
-          <text y="32" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">HYDRO</text>
+          <rect x="-5" y="-6" width="10" height="12" rx="1" fill="none" stroke="#ffc21a" stroke-width="1.5" />
+          <rect x="-1.5" y="-9" width="3" height="3" fill="#ffc21a" />
+          <text y="32" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">BESS</text>
         </g>
         <g transform="translate(66,310)">
           <circle r="15" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
-          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-family="monospace" font-size="11">&#9883;</text>
-          <text y="32" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SMR</text>
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-family="monospace" font-size="12">&#8767;</text>
+          <text y="32" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">HYDRO</text>
         </g>
       </g>
 
       <!-- ============ CENTRALISED STATE ============ -->
       <g id="gd-central" class="gd-state">
-        <path class="gd-flow" d="M 82 130 L 400 220" stroke="url(#gd-energy)" stroke-width="2" fill="none" stroke-opacity="0.7" />
-        <path class="gd-flow" d="M 82 220 L 400 220" stroke="url(#gd-energy)" stroke-width="2" fill="none" stroke-opacity="0.7" />
-        <path class="gd-flow" d="M 82 310 L 400 220" stroke="url(#gd-energy)" stroke-width="2" fill="none" stroke-opacity="0.7" />
-        <circle cx="400" cy="220" r="52" fill="url(#gd-node-glow)" />
+        <path class="gd-flow" d="M 82 130 L 400 220" stroke="#ffc21a" stroke-width="2" fill="none" stroke-opacity="0.7" />
+        <path class="gd-flow" d="M 82 220 L 400 220" stroke="#ffc21a" stroke-width="2" fill="none" stroke-opacity="0.7" />
+        <path class="gd-flow" d="M 82 310 L 400 220" stroke="#ffc21a" stroke-width="2" fill="none" stroke-opacity="0.7" />
         <circle class="charge-pulse" cx="400" cy="220" r="46" fill="#ff6a1a" fill-opacity="0.1" stroke="#ff6a1a" stroke-width="2" />
         <text x="400" y="214" text-anchor="middle" fill="#ff8340" font-family="monospace" font-size="13" font-weight="500">1 SITE</text>
         <text x="400" y="230" text-anchor="middle" fill="#8a939c" font-family="monospace" font-size="9">SUPERCOMPUTER</text>
@@ -86,8 +90,8 @@
 
       <!-- ============ DISTRIBUTED STATE ============ -->
       <g id="gd-distributed" class="gd-state">
-        <!-- source -> node energy flows (yellow) -->
-        <g fill="none" stroke="url(#gd-energy)" stroke-width="1.5" stroke-opacity="0.6">
+        <!-- source -> node ENERGY flows (yellow = energy) -->
+        <g fill="none" stroke="#ffc21a" stroke-width="1.5" stroke-opacity="0.55">
           <path class="gd-flow" d="M 82 130 L 300 96" />
           <path class="gd-flow" d="M 82 130 L 440 140" />
           <path class="gd-flow" d="M 82 220 L 360 220" />
@@ -95,8 +99,8 @@
           <path class="gd-flow" d="M 82 310 L 330 340" />
           <path class="gd-flow" d="M 82 310 L 620 330" />
         </g>
-        <!-- node-to-node mesh (faint, shows it is a network) -->
-        <g fill="none" stroke="#ff6a1a" stroke-width="1" stroke-opacity="0.28">
+        <!-- node-to-node COMPUTE mesh (orange = compute) -->
+        <g fill="none" stroke="#ff6a1a" stroke-width="1" stroke-opacity="0.3">
           <path class="gd-flow gd-mesh" d="M 300 96 L 440 140" />
           <path class="gd-flow gd-mesh" d="M 440 140 L 560 190" />
           <path class="gd-flow gd-mesh" d="M 360 220 L 560 190" />
@@ -105,6 +109,19 @@
           <path class="gd-flow gd-mesh" d="M 440 140 L 690 210" />
           <path class="gd-flow gd-mesh" d="M 620 330 L 690 210" />
           <path class="gd-flow gd-mesh" d="M 300 96 L 360 220" />
+        </g>
+        <!-- household (yellow) nodes also contribute COMPUTE: orange mesh links from homes into the network -->
+        <g fill="none" stroke="#ff6a1a" stroke-width="0.9" stroke-opacity="0.22">
+          <path class="gd-flow gd-mesh" d="M 390 110 L 440 140" />
+          <path class="gd-flow gd-mesh" d="M 500 150 L 560 190" />
+          <path class="gd-flow gd-mesh" d="M 520 250 L 560 190" />
+          <path class="gd-flow gd-mesh" d="M 600 250 L 620 330" />
+          <path class="gd-flow gd-mesh" d="M 410 300 L 360 220" />
+          <path class="gd-flow gd-mesh" d="M 470 340 L 330 340" />
+          <path class="gd-flow gd-mesh" d="M 660 280 L 690 210" />
+          <path class="gd-flow gd-mesh" d="M 280 180 L 300 96" />
+          <path class="gd-flow gd-mesh" d="M 670 150 L 690 210" />
+          <path class="gd-flow gd-mesh" d="M 380 250 L 360 220" />
         </g>
         <!-- nodes: large = community/energy sites, small = homes -->
         <g>
@@ -117,7 +134,7 @@
           <circle class="gd-node gd-node-md charge-pulse" cx="360" cy="220" r="7" />
           <circle class="gd-node gd-node-md charge-pulse" cx="690" cy="210" r="7" />
           <circle class="gd-node gd-node-md charge-pulse" cx="330" cy="340" r="7" />
-          <!-- small home nodes -->
+          <!-- small home nodes (yellow = household energy contributors, also feeding compute mesh) -->
           <g class="gd-node gd-node-sm">
             <circle cx="390" cy="110" r="4" /><circle cx="500" cy="150" r="4" /><circle cx="520" cy="250" r="4" />
             <circle cx="600" cy="250" r="4" /><circle cx="410" cy="300" r="4" /><circle cx="470" cy="340" r="4" />
