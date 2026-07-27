@@ -5,7 +5,9 @@ import StepCard from "@/components/StepCard.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
 import TokenCard from "@/components/TokenCard.astro";
 import GridDemo from "@/components/GridDemo.astro";
-import Placeholder from "@/components/Placeholder.astro";
+import { ForesightScope } from "@fw-vision/widgets";
+import "@fw-vision/widgets/style.css";
+import { sovereigntyForesightData } from "@/data/foresight";
 ---
 
 <Main
@@ -238,12 +240,15 @@ import Placeholder from "@/components/Placeholder.astro";
             See the fifty-year trajectory <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
-        <Placeholder
-          kind="data"
-          ratio="4/3"
-          label="ForesightScope preview: the sovereignty cone"
-          note="Live ForesightScope renders on The Future page. This slot can hold a static cover render of the preferred trajectory reaching economic sovereignty at H3."
-        />
+        <div class="border border-hairline bg-ink-2 aspect-[4/3]">
+          <ForesightScope
+            client:only="react"
+            theme="dark"
+            showLegend={false}
+            compact
+            data={sovereigntyForesightData}
+          />
+        </div>
       </div>
     </div>
   </section>

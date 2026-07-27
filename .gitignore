@@ -35,3 +35,4 @@ logs
 
 # Internal build-spec prompts and strategy docs (not for the public repo)
 docs/plans/
+*.code-workspace

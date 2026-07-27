@@ -41,7 +41,7 @@ Defined in `src/styles/global.css` under `@theme` and `:root`.
 
 Energy gradient: `--grad-energy` = orange -> yellow (`#FF6A1A` -> `#FFC21A`). Low-opacity as a wash; full saturation only for small signal elements.
 
-`--wk-accent: #FF6A1A` binds the `@fw-vision/web-kit` accent. The `.foresight-dark` block in `global.css` is a **temporary stopgap** remapping the ForesightScope widget's light-theme greys for the dark canvas; it is removed once the widget gains a real dark theme (see `docs/plans/foresightscope-dark-mode.md`, local/gitignored).
+`--wk-accent: #FF6A1A` binds the `@fw-vision/web-kit` accent. ForesightScope dark instances use the widget's `theme="dark"` prop (neutrals `#C4CBD2` / `#8A939C` / `#F4F6F8` on the ink canvas).
 
 ---
 
@@ -76,7 +76,7 @@ Utility classes in `global.css`: `.field-label` (mono uppercase eyebrow), `.fiel
 | Component | Role |
 |-----------|------|
 | `Wordmark.astro` | "DAI" (orange) + "Compute". `variant="nav"` / `"display"`. |
-| `GridDemo.astro` | Signature demonstration: auto-cycling (5s) centralised vs distributed compute topology, animated energy/compute flows, telemetry HUD, contrast metric strip. Self-contained SVG + inline JS. **The reference idiom for new dataviz.** |
+| `MarketFlywheel.astro` | Protocol-page flywheel: capital / energy / compute loop (SVG + CSS, GridDemo idiom). |
 | `TokenCard.astro` | CADS / sCADS / CROWN spec cards (`accent="orange"|"yellow"|"red"`). |
 | `StatCounter.astro` | Verified-data stat rows (national statistics; not live protocol metrics pre-launch). |
 | `FeatureCard.astro` | Kicker + title + body + CTA card. |

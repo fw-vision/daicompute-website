@@ -1,0 +1,196 @@
+---
+/**
+ * MarketFlywheel - animated two-sided market loop for the Protocol page.
+ *
+ * Capital (flag red) funds loans; builders light energy (yellow) and compute
+ * (orange) assets; revenue and interest return to depositors (sCADS). An
+ * enterprise compute side-branch feeds revenue. Self-contained SVG + CSS in the
+ * GridDemo idiom. Continuous flow loop; freezes under prefers-reduced-motion.
+ */
+---
+
+<div class="border border-hairline bg-ink-2/40">
+  <div class="flex flex-wrap items-center justify-between gap-4 border-b border-hairline px-6 py-4">
+    <p class="field-label text-slate">Demonstration &middot; Two-sided market</p>
+    <p class="field-note text-slate/70">CADS in &middot; sCADS yield out</p>
+  </div>
+
+  <div class="tech-grid relative">
+    <svg
+      id="market-flywheel-svg"
+      viewBox="0 0 960 440"
+      class="h-auto w-full"
+      role="img"
+      aria-label="Flywheel showing capital funding loans that build energy and compute assets, which repay depositors"
+    >
+      <!-- Colour-language legend -->
+      <g font-family="monospace" font-size="9">
+        <circle cx="34" cy="28" r="5" fill="#d52b1e" />
+        <text x="44" y="31" fill="#8a939c">CAPITAL</text>
+        <circle cx="128" cy="28" r="5" fill="#ffc21a" />
+        <text x="138" y="31" fill="#8a939c">ENERGY</text>
+        <circle cx="218" cy="28" r="5" fill="#ff6a1a" />
+        <text x="228" y="31" fill="#8a939c">COMPUTE</text>
+      </g>
+
+      <!--
+        Node centres (paths meet edge midpoints; captions live inside each group):
+          Depositors  (130, 210)  r=28
+          Loan book   (430, 115)  box 112x48
+          Builders    (790, 200)  r=26
+          Assets      (650, 330)  E/C pair
+          Revenue     (360, 320)  box 80x36
+          Enterprise  (820, 68)   box 104x36
+      -->
+
+      <!-- Flows (under nodes) -->
+      <!-- Depositors top -> Loan book left -->
+      <path
+        class="mf-flow"
+        d="M 130 182 C 180 100, 300 80, 374 115"
+        fill="none"
+        stroke="#d52b1e"
+        stroke-width="2"
+        stroke-opacity="0.75"
+      />
+      <!-- Loan book right -> Builders left -->
+      <path
+        class="mf-flow"
+        d="M 486 115 C 580 100, 680 130, 764 190"
+        fill="none"
+        stroke="#d52b1e"
+        stroke-width="2"
+        stroke-opacity="0.75"
+      />
+      <!-- Builders SW -> Assets (energy) — exits left of the under-caption -->
+      <path
+        class="mf-flow"
+        d="M 768 218 C 740 260, 700 295, 678 318"
+        fill="none"
+        stroke="#ffc21a"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <!-- Builders SW -> Assets (compute) -->
+      <path
+        class="mf-flow mf-flow-slow"
+        d="M 772 222 C 750 275, 710 310, 678 330"
+        fill="none"
+        stroke="#ff6a1a"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <!-- Assets -> Revenue (energy) -->
+      <path
+        class="mf-flow"
+        d="M 622 330 C 540 350, 470 340, 400 328"
+        fill="none"
+        stroke="#ffc21a"
+        stroke-width="1.6"
+        stroke-opacity="0.55"
+      />
+      <!-- Assets -> Revenue (compute) -->
+      <path
+        class="mf-flow mf-flow-slow"
+        d="M 622 340 C 540 360, 470 350, 400 338"
+        fill="none"
+        stroke="#ff6a1a"
+        stroke-width="1.6"
+        stroke-opacity="0.55"
+      />
+      <!-- Revenue left -> Depositors bottom (interest) -->
+      <path
+        class="mf-flow"
+        d="M 320 320 C 220 320, 160 280, 130 238"
+        fill="none"
+        stroke="#d52b1e"
+        stroke-width="2"
+        stroke-opacity="0.75"
+      />
+      <!-- Enterprise left -> Revenue — exits sideways, clears under-caption -->
+      <path
+        class="mf-flow mf-flow-slow"
+        d="M 768 68 C 700 120, 560 220, 400 302"
+        fill="none"
+        stroke="#ff6a1a"
+        stroke-width="1.5"
+        stroke-opacity="0.5"
+      />
+
+      <!-- Stage nodes + captions (grouped so labels stay centred on the node) -->
+      <g font-family="monospace">
+        <!-- 1. Depositors -->
+        <g transform="translate(130,210)">
+          <circle class="charge-pulse" r="28" fill="#14171a" stroke="#d52b1e" stroke-width="2" />
+          <text y="-3" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="10" font-weight="500">DEPOSITORS</text>
+          <text y="11" text-anchor="middle" dominant-baseline="central" fill="#d52b1e" font-size="9">sCADS</text>
+          <text y="48" text-anchor="middle" fill="#8a939c" font-size="9">supply capital</text>
+        </g>
+
+        <!-- 2. Loan book -->
+        <g transform="translate(430,115)">
+          <rect x="-56" y="-24" width="112" height="48" rx="2" fill="#14171a" stroke="#d52b1e" stroke-width="1.5" />
+          <text y="-5" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="10" font-weight="500">LOAN BOOK</text>
+          <text y="11" text-anchor="middle" dominant-baseline="central" fill="#d52b1e" font-size="9">CADS</text>
+          <text y="44" text-anchor="middle" fill="#8a939c" font-size="9">funds infrastructure</text>
+        </g>
+
+        <!-- 3. Builders -->
+        <g transform="translate(790,200)">
+          <circle class="charge-pulse" r="26" fill="#14171a" stroke="#8a939c" stroke-width="1.5" />
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="10" font-weight="500">BUILDERS</text>
+          <text y="46" text-anchor="middle" fill="#8a939c" font-size="9">originate assets</text>
+        </g>
+
+        <!-- 4. Energy + Compute assets -->
+        <g transform="translate(650,330)">
+          <circle class="charge-pulse" cx="-28" r="16" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
+          <text x="-28" y="1" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-size="9">E</text>
+          <circle class="charge-pulse" cx="28" r="16" fill="#14171a" stroke="#ff6a1a" stroke-width="1.5" />
+          <text x="28" y="1" text-anchor="middle" dominant-baseline="central" fill="#ff6a1a" font-size="9">C</text>
+          <text y="42" text-anchor="middle" fill="#8a939c" font-size="9">energy + compute</text>
+        </g>
+
+        <!-- 5. Revenue -->
+        <g transform="translate(360,320)">
+          <rect class="charge-pulse" x="-40" y="-18" width="80" height="36" rx="2" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="10" font-weight="500">REVENUE</text>
+          <text y="42" text-anchor="middle" fill="#8a939c" font-size="9">interest returns</text>
+        </g>
+
+        <!-- 6. Enterprise (side branch) -->
+        <g transform="translate(820,68)">
+          <rect x="-52" y="-18" width="104" height="36" rx="2" fill="#14171a" stroke="#ff6a1a" stroke-width="1.5" />
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="9" font-weight="500">ENTERPRISE</text>
+          <text y="42" text-anchor="middle" fill="#8a939c" font-size="9">buy sovereign compute</text>
+        </g>
+      </g>
+    </svg>
+
+    <div class="border-t border-hairline px-6 py-4">
+      <p class="field-note text-slate">
+        Depositors supply CADS to the loan book; loans fund Canadian energy and compute; assets generate revenue; interest accrues to sCADS. Enterprise buyers pay for sovereign compute into the same loop.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mf-flow {
+    stroke-dasharray: 5 9;
+    animation: mf-flow-move 1.6s linear infinite;
+  }
+  .mf-flow-slow {
+    animation-duration: 2.4s;
+  }
+  @keyframes mf-flow-move {
+    to { stroke-dashoffset: -28; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mf-flow,
+    .mf-flow-slow {
+      animation: none;
+    }
+  }
+</style>

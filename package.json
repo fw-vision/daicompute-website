@@ -14,7 +14,7 @@
     "@astrojs/react": "^6.0.1",
     "@astrojs/sitemap": "^3.7.3",
     "@fw-vision/web-kit": "0.1.0",
-    "@fw-vision/widgets": "0.2.0",
+    "@fw-vision/widgets": "0.3.1",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.3.3",
     "@types/d3": "^7.4.3",

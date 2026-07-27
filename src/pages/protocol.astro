@@ -3,7 +3,7 @@ import Main from "@/layouts/Main.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import TokenCard from "@/components/TokenCard.astro";
 import FeatureCard from "@/components/FeatureCard.astro";
-import Placeholder from "@/components/Placeholder.astro";
+import MarketFlywheel from "@/components/MarketFlywheel.astro";
 ---
 
 <Main
@@ -70,12 +70,7 @@ import Placeholder from "@/components/Placeholder.astro";
         Capital funds loans. Loans build assets. Assets repay capital.
       </h2>
       <div class="mt-10">
-        <Placeholder
-          kind="data"
-          ratio="21/9"
-          label="Two-sided market flywheel: deposit to loan to build to yield"
-          note="Sourcing brief: animated flow. Depositors supply CADS to the loan book; loans fund operators; assets generate energy + compute revenue; interest repays sCADS; enterprise buyers pay for sovereign compute. Dataviz build (see docs/plans/two-sided-market-viz)."
-        />
+        <MarketFlywheel />
       </div>
     </div>
   </section>

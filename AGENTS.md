@@ -62,7 +62,7 @@ src/
     FeatureCard, StepCard, PageHeader, Placeholder
   data/
     foresight.ts              sovereigntyForesightData: the long-horizon trajectory for ForesightScope (H1-H3, scenarios, preferred + off-ramp)
-  styles/global.css           Design tokens (@theme), palette, colour language, GridDemo animations, .foresight-dark stopgap
+  styles/global.css           Design tokens (@theme), palette, colour language, GridDemo animations
 public/
   CNAME (daicompute.ca), robots.txt, favicon.svg
 docs/                         brand/ (DESIGN.md), adr/, data/ (public source data), plans/ (local build specs, gitignored)

@@ -40,7 +40,7 @@ builders borrow against the infrastructure they build. Three instruments:
 ### Dataviz (see docs/plans/, local build specs)
 - **GridDemo (shipped):** auto-cycling schematic on the home page (centralised vs distributed, animated energy/compute flows, telemetry HUD, contrast strip).
 - **Canada choropleth (planned):** interactive map of Canadian energy + data-centre assets (sovereign vs foreign-owned), to become the home hero. Uses `docs/data/canada-energy-compute.md`.
-- **ForesightScope dark-mode (planned):** the widget renders light-theme colours; fix for the dark canvas (home preview + `/future`), removing the `.foresight-dark` CSS stopgap.
+- **ForesightScope dark-mode:** shipped. Home preview + `/future` use `theme="dark"`; the CSS stopgap is removed.
 - **Two-sided-market flywheel (planned):** replace the `/protocol` placeholder with an animated flywheel in the GridDemo idiom.
 - **Proof-of-reserves** (`/invest`) and **on-chain/off-chain loan lifecycle** (`/build`): placeholders.
 

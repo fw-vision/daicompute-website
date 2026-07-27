@@ -40,8 +40,8 @@ export const sovereigntyForesightData: ForesightScopeDataWithTrajectories = {
   presentDate: "2026-07-01",
   timeRange: { start: "2016-01-01", end: "2076-12-31" },
   coneLabels: {
-    growth: "Preferred trajectory",
-    crisis: "Off-ramp / pitfall",
+    growth: "Growth / Transform",
+    crisis: "Crisis / Discipline",
   },
   mainThread: [
     { id: "mt-strategy-2017", date: "2017-01-01", label: "First national AI strategy (talent, not compute)", type: "decision" },

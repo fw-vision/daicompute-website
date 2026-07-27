@@ -23,6 +23,6 @@ Full spec: `docs/brand/DESIGN.md`.
 ## Consequences
 
 - Contrast comes from tonal depth (no shadows).
-- The `@fw-vision/widgets` ForesightScope renders light-theme colours; a `.foresight-dark` CSS stopgap remaps them for now, to be removed once the widget gains a real `theme="dark"`.
+- The `@fw-vision/widgets` ForesightScope supports `theme="dark"` for dark-canvas consumers (default remains `"light"`).
 - Warm accents are rationed (<10% of any viewport); the dark canvas carries the weight.
 - Accessibility: flag red on dark passes only for large text/UI, not body copy.
