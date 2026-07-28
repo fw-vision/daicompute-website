@@ -55,5 +55,14 @@ bunx astro dev        # local dev (do not leave running in CI/agents)
 
 GitHub Pages via `.github/workflows/deploy.yml` (bun-based). Private package
 auth in CI uses Actions secret `FWVISION_PACKAGES_TOKEN` (classic PAT with
-`read:packages`), mapped to `GITHUB_TOKEN_FWVISION` for `.npmrc`. Custom
-domain in `public/CNAME` (daicompute.ca).
+`read:packages`), mapped to `GITHUB_TOKEN_FWVISION` for `.npmrc`. That secret
+must be a **Repository** secret, or an **Environment** secret on `github-pages`
+(the build job uses that environment). Custom domain in `public/CNAME`
+(daicompute.ca).
+
+To verify package auth locally (same check CI runs before `bun install`):
+
+```powershell
+$env:GITHUB_TOKEN_FWVISION = "<your classic PAT>"
+bun scripts/check-packages-auth.mjs
+```
