@@ -9,7 +9,7 @@ The site must be a low-cost, low-maintenance credibility artifact for a pre-laun
 
 ## Decision
 
-1. **Host on GitHub Pages** (static output, Astro `output: "static"`). Deploy via `.github/workflows/deploy.yml` (bun-based), with `permissions: packages: read` and `GITHUB_TOKEN_FWVISION` mapped from the Actions token so the private `@fw-vision/*` packages install in CI. Custom domain via `public/CNAME`.
+1. **Host on GitHub Pages** (static output, Astro `output: "static"`). Deploy via `.github/workflows/deploy.yml` (bun-based). Private `@fw-vision/*` packages install in CI via repo/org secret `FWVISION_PACKAGES_TOKEN` (classic PAT with `read:packages`), mapped to env `GITHUB_TOKEN_FWVISION` for `.npmrc`. The automatic Actions `GITHUB_TOKEN` cannot read packages published from another repo. Custom domain via `public/CNAME`.
 2. **No server-side form.** GitHub Pages is static; there is no backend. Rather than route visitor data through a third-party form processor (Formspree, EmailJS, etc.), the contact page presents an **illustrative disabled template** plus a **`mailto:hello@daicompute.ca`** button prefilled with a structured template. This is first-party (the visitor's own mail client); no third party touches the data.
 
 ## Consequences

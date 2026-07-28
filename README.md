@@ -53,6 +53,7 @@ bunx astro dev        # local dev (do not leave running in CI/agents)
 
 ## Deploy
 
-GitHub Pages via `.github/workflows/deploy.yml` (bun-based; maps the Actions
-token for private-package install). Custom domain in `public/CNAME`
-(daicompute.ca).
+GitHub Pages via `.github/workflows/deploy.yml` (bun-based). Private package
+auth in CI uses Actions secret `FWVISION_PACKAGES_TOKEN` (classic PAT with
+`read:packages`), mapped to `GITHUB_TOKEN_FWVISION` for `.npmrc`. Custom
+domain in `public/CNAME` (daicompute.ca).

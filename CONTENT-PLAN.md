@@ -66,7 +66,7 @@ builders borrow against the infrastructure they build. Three instruments:
 
 ## Deploy
 
-- Workflow: `.github/workflows/deploy.yml` (bun-based; maps `GITHUB_TOKEN_FWVISION`; `packages: read`).
+- Workflow: `.github/workflows/deploy.yml` (bun-based; secret `FWVISION_PACKAGES_TOKEN` with `read:packages` for private `@fw-vision/*`).
 - Domain: `public/CNAME` = `daicompute.ca`.
 - Owner actions: push to `main`, enable Pages, DNS, owned imagery, logo, and the planned visualisations.
 
