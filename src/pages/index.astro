@@ -24,7 +24,7 @@ import { sovereigntyForesightData } from "@/data/foresight";
         Blockchain sovereign compute &middot; Canada
       </p>
       <h1 class="mt-8 max-w-4xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-snow sm:text-5xl lg:text-[4.25rem]">
-        The method for Canadians to build Canadian
+        How Canadians can build Canadian
         <span class="text-energy"> energy and compute.</span>
       </h1>
       <p class="mt-8 max-w-2xl text-lg leading-relaxed text-mist">
@@ -121,10 +121,11 @@ import { sovereigntyForesightData } from "@/data/foresight";
         <span class="field-label" style="color: var(--color-orange);">Invest</span>
         <h3 class="mt-3 font-display text-2xl font-semibold text-snow">Earn yield from building Canadian infrastructure.</h3>
         <p class="mt-4 text-sm leading-relaxed text-slate">
-          Deposit into <span class="ticker text-mist">CADS</span>, a fully-backed
-          synthetic Canadian dollar. Stake for <span class="ticker text-mist">sCADS</span>
-          and earn yield drawn from real energy and compute loans, not token
-          subsidies. Every dollar is traceable to physical Canadian assets.
+          Deposit into <span class="ticker text-mist">CADS</span>, an
+          algorithmically stabilised synthetic Canadian dollar. Stake for
+          <span class="ticker text-mist">sCADS</span> and earn yield drawn from
+          real energy and compute loans, not token subsidies. Reserve composition
+          and valuation methods are disclosed.
         </p>
         <a href="/invest" class="accent-link field-note mt-6 inline-flex w-fit items-center gap-1.5 uppercase tracking-[0.16em]">
           How investing works <span aria-hidden="true">&rarr;</span>
@@ -179,16 +180,17 @@ import { sovereigntyForesightData } from "@/data/foresight";
   <section class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
     <p class="field-label" style="color: var(--color-orange);">The instrument stack</p>
     <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow sm:text-4xl">
-      Three instruments. All backed. None speculative.
+      Three instruments. One stable unit of account.
     </h2>
     <div class="mt-12 grid gap-6 md:grid-cols-3">
       <TokenCard
         symbol="CADS"
         name="Synthetic dollar"
-        tagline="Fully-backed synthetic Canadian dollar. The stable entry point; does not accrue yield."
+        tagline="Algorithmic stablecoin. Stabilised against CAD over a blended reserve. The stable entry point; does not accrue yield."
         attributes={[
-          { k: "Peg", v: "1:1 to CAD" },
-          { k: "Backing", v: "Reserves + senior loan claim" },
+          { k: "Type", v: "Algorithmic stablecoin" },
+          { k: "Peg", v: "Tracks CAD (algorithmic)" },
+          { k: "Reserve", v: "Blended, multi-method valued" },
           { k: "Yield", v: "None (liquid unit)" },
         ]}
       />

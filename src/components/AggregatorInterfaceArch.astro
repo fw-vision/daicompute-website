@@ -1,0 +1,272 @@
+---
+/**
+ * AggregatorInterfaceArch - animated reference architecture for how a
+ * private-chain energy+compute aggregator interfaces with DAI Compute.
+ *
+ * Layout rule: each zone frame is sized to its card stack plus a uniform
+ * inset (~40px). Cards are mid-size (readable type, comfortable label padding).
+ * MarketFlywheel idiom; freezes under prefers-reduced-motion.
+ *
+ * Geometry (viewBox 1000×600):
+ *   Left zone  x=20  w=460  → content centre 250, inset 40
+ *   Right zone x=520 w=460  → content inset 40 from each edge
+ *   Card sizes: single-line 184×40; two-line 196×52
+ */
+---
+
+<div class="border border-hairline bg-ink-2/40">
+  <div class="flex flex-wrap items-center justify-between gap-4 border-b border-hairline px-6 py-4">
+    <p class="field-label text-slate">Demonstration &middot; Aggregator interface</p>
+    <p class="field-note text-slate/70">Private chain &middot; platform I/F</p>
+  </div>
+
+  <div class="tech-grid relative">
+    <svg
+      viewBox="0 0 1000 600"
+      class="h-auto w-full"
+      role="img"
+      aria-label="Private-chain energy and compute aggregator stacking from real assets through an integration interface into the DAI Compute platform"
+    >
+      <!-- Colour-language legend -->
+      <g font-family="monospace" font-size="9">
+        <circle cx="34" cy="24" r="4" fill="#d52b1e" />
+        <text x="44" y="27" fill="#8a939c">SOVEREIGNTY</text>
+        <circle cx="148" cy="24" r="4" fill="#ffc21a" />
+        <text x="158" y="27" fill="#8a939c">ENERGY</text>
+        <circle cx="238" cy="24" r="4" fill="#ff6a1a" />
+        <text x="248" y="27" fill="#8a939c">COMPUTE</text>
+      </g>
+
+      <!-- Private-chain zone: padded frame around left stack -->
+      <rect
+        x="20"
+        y="40"
+        width="460"
+        height="520"
+        rx="4"
+        fill="#14171a"
+        fill-opacity="0.45"
+        stroke="#2a2f35"
+        stroke-width="1.5"
+      />
+      <text
+        x="250"
+        y="68"
+        text-anchor="middle"
+        fill="#f4f6f8"
+        font-family="monospace"
+        font-size="11"
+        font-weight="500"
+      >PRIVATE-CHAIN AGGREGATOR</text>
+      <text
+        x="250"
+        y="86"
+        text-anchor="middle"
+        fill="#8a939c"
+        font-family="monospace"
+        font-size="9"
+      >energy + compute asset network</text>
+
+      <!-- DAI Compute zone: matching padded frame -->
+      <rect
+        x="520"
+        y="40"
+        width="460"
+        height="520"
+        rx="4"
+        fill="#14171a"
+        fill-opacity="0.55"
+        stroke="#d52b1e"
+        stroke-width="1.5"
+        stroke-opacity="0.85"
+      />
+      <text
+        x="750"
+        y="68"
+        text-anchor="middle"
+        fill="#f4f6f8"
+        font-family="monospace"
+        font-size="11"
+        font-weight="500"
+      >DAI COMPUTE PLATFORM</text>
+      <text
+        x="750"
+        y="86"
+        text-anchor="middle"
+        fill="#8a939c"
+        font-family="monospace"
+        font-size="9"
+      >sovereign pool + settlement</text>
+
+      <!-- Aggregator vertical flows -->
+      <path
+        class="aia-flow"
+        d="M 250 158 L 250 186"
+        fill="none"
+        stroke="#ffc21a"
+        stroke-width="1.6"
+        stroke-opacity="0.7"
+      />
+      <path
+        class="aia-flow aia-flow-slow"
+        d="M 250 236 L 250 268"
+        fill="none"
+        stroke="#8a939c"
+        stroke-width="1.5"
+        stroke-opacity="0.65"
+      />
+      <path
+        class="aia-flow"
+        d="M 250 330 L 250 362"
+        fill="none"
+        stroke="#8a939c"
+        stroke-width="1.5"
+        stroke-opacity="0.65"
+      />
+      <path
+        class="aia-flow aia-flow-slow"
+        d="M 250 424 L 250 456"
+        fill="none"
+        stroke="#d52b1e"
+        stroke-width="1.6"
+        stroke-opacity="0.7"
+      />
+
+      <!-- Interface bridge -->
+      <path
+        class="aia-flow"
+        d="M 348 480 C 410 480, 470 330, 610 308"
+        fill="none"
+        stroke="#d52b1e"
+        stroke-width="2"
+        stroke-opacity="0.8"
+      />
+      <path
+        class="aia-flow aia-flow-slow"
+        d="M 610 340 C 470 380, 410 480, 348 480"
+        fill="none"
+        stroke="#ff6a1a"
+        stroke-width="1.7"
+        stroke-opacity="0.65"
+      />
+
+      <!-- Platform internal flows -->
+      <path
+        class="aia-flow aia-flow-slow"
+        d="M 700 300 C 760 250, 800 210, 840 188"
+        fill="none"
+        stroke="#ff6a1a"
+        stroke-width="1.4"
+        stroke-opacity="0.55"
+      />
+      <path
+        class="aia-flow"
+        d="M 700 325 C 760 350, 800 370, 840 380"
+        fill="none"
+        stroke="#ffc21a"
+        stroke-width="1.4"
+        stroke-opacity="0.55"
+      />
+      <path
+        class="aia-flow aia-flow-slow"
+        d="M 700 350 C 760 400, 800 440, 840 468"
+        fill="none"
+        stroke="#d52b1e"
+        stroke-width="1.4"
+        stroke-opacity="0.55"
+      />
+
+      <g font-family="monospace">
+        <!-- Left stack: inset ~40 from zone edges (zone 20–480, cards ~152–348) -->
+        <g transform="translate(250,136)">
+          <circle class="charge-pulse" cx="-36" r="18" fill="#14171a" stroke="#ffc21a" stroke-width="1.5" />
+          <text x="-36" y="1" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-size="11">E</text>
+          <circle class="charge-pulse" cx="36" r="18" fill="#14171a" stroke="#ff6a1a" stroke-width="1.5" />
+          <text x="36" y="1" text-anchor="middle" dominant-baseline="central" fill="#ff6a1a" font-size="11">C</text>
+          <text y="38" text-anchor="middle" fill="#8a939c" font-size="8">real assets</text>
+        </g>
+
+        <!-- Single-line card 184×40 -->
+        <g transform="translate(250,206)">
+          <rect x="-92" y="-20" width="184" height="40" rx="2" fill="#0b0d0f" stroke="#8a939c" stroke-width="1.2" />
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">ATTESTATION</text>
+        </g>
+
+        <!-- Two-line card 196×52 -->
+        <g transform="translate(250,294)">
+          <rect class="charge-pulse" x="-98" y="-26" width="196" height="52" rx="2" fill="#0b0d0f" stroke="#ffc21a" stroke-width="1.4" />
+          <text y="-6" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">COLLATERALISED TOKEN</text>
+          <text y="14" text-anchor="middle" dominant-baseline="central" fill="#ffc21a" font-size="9">self-chosen ratio</text>
+        </g>
+
+        <g transform="translate(250,388)">
+          <rect x="-98" y="-26" width="196" height="52" rx="2" fill="#0b0d0f" stroke="#8a939c" stroke-width="1.2" />
+          <text y="-6" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">PERMISSIONED CONSENSUS</text>
+          <text y="14" text-anchor="middle" dominant-baseline="central" fill="#8a939c" font-size="9">+ legal wrapper</text>
+        </g>
+
+        <g transform="translate(250,480)">
+          <rect class="charge-pulse" x="-98" y="-24" width="196" height="48" rx="2" fill="#0b0d0f" stroke="#d52b1e" stroke-width="1.6" />
+          <text y="-5" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">INTEGRATION INTERFACE</text>
+          <text y="14" text-anchor="middle" dominant-baseline="central" fill="#d52b1e" font-size="9">capacity + settlement I/F</text>
+        </g>
+
+        <!-- Bridge labels (in the gutter between zones) -->
+        <text x="490" y="400" text-anchor="middle" fill="#8a939c" font-size="8" transform="rotate(-52 490 400)">capacity in</text>
+        <text x="502" y="442" text-anchor="middle" fill="#8a939c" font-size="8" transform="rotate(-52 502 442)">settlement out</text>
+
+        <!--
+          Right column layout inside zone 520–980 (inset 40 → usable 560–940):
+            Capacity at 640 (left edge 640-66=574 ≥ 560)
+            Capability stack at 860 (right edge 860+74=934 ≤ 940)
+        -->
+        <g transform="translate(640,324)">
+          <rect class="charge-pulse" x="-66" y="-26" width="132" height="52" rx="2" fill="#0b0d0f" stroke="#d52b1e" stroke-width="1.5" />
+          <text y="-6" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">CAPACITY</text>
+          <text y="14" text-anchor="middle" dominant-baseline="central" fill="#d52b1e" font-size="9">accounting</text>
+        </g>
+
+        <g transform="translate(860,170)">
+          <rect class="charge-pulse" x="-74" y="-20" width="148" height="40" rx="2" fill="#0b0d0f" stroke="#ff6a1a" stroke-width="1.4" />
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">SOVEREIGN POOL</text>
+        </g>
+        <g transform="translate(860,380)">
+          <rect class="charge-pulse" x="-74" y="-20" width="148" height="40" rx="2" fill="#0b0d0f" stroke="#ffc21a" stroke-width="1.4" />
+          <text y="1" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">MICRO-LENDING</text>
+        </g>
+        <g transform="translate(860,468)">
+          <rect class="charge-pulse" x="-74" y="-26" width="148" height="52" rx="2" fill="#0b0d0f" stroke="#d52b1e" stroke-width="1.4" />
+          <text y="-6" text-anchor="middle" dominant-baseline="central" fill="#f4f6f8" font-size="11" font-weight="500">SETTLEMENT</text>
+          <text y="14" text-anchor="middle" dominant-baseline="central" fill="#d52b1e" font-size="9">CADS</text>
+        </g>
+      </g>
+    </svg>
+
+    <div class="border-t border-hairline px-6 py-4">
+      <p class="field-note text-slate">
+        A private-chain aggregator attests real energy and compute assets into a collateralised token under permissioned consensus, then exposes a standard interface. DAI Compute accounts capacity into the sovereign pool and settles through CADS.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .aia-flow {
+    stroke-dasharray: 5 9;
+    animation: aia-flow-move 1.6s linear infinite;
+  }
+  .aia-flow-slow {
+    animation-duration: 2.4s;
+  }
+  @keyframes aia-flow-move {
+    to {
+      stroke-dashoffset: -28;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aia-flow,
+    .aia-flow-slow {
+      animation: none;
+    }
+  }
+</style>

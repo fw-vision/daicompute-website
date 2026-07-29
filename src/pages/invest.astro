@@ -9,13 +9,13 @@ import Placeholder from "@/components/Placeholder.astro";
 
 <Main
   title="Invest - Earn yield from building Canadian infrastructure"
-  description="Deposit into CADS, a fully-backed synthetic Canadian dollar, and stake for sCADS to earn yield from real energy and compute loans. Asset-backed, verifiable, sovereign."
+  description="Deposit into CADS, an algorithmically stabilised synthetic Canadian dollar, and stake for sCADS to earn yield from real energy and compute loans. Disclosed reserves, verifiable, sovereign."
   activePath="/invest"
 >
   <PageHeader
     eyebrow="Invest"
     title="Earn yield from building Canadian infrastructure."
-    lede="Deposit for a fully-backed synthetic Canadian dollar. Stake it for yield drawn from real energy and compute loans, not token subsidies or trading fees. Every dollar you deposit is traceable to physical Canadian assets."
+    lede="Deposit for an algorithmically stabilised synthetic Canadian dollar. Stake it for yield drawn from real energy and compute loans, not token subsidies or trading fees. Reserve composition and valuation methods are disclosed; that transparency is the trust anchor."
   />
 
   <!-- How investing works -->
@@ -26,10 +26,11 @@ import Placeholder from "@/components/Placeholder.astro";
     </h2>
     <div class="mt-12 grid gap-6 md:grid-cols-3">
       <StepCard index="01" title="Deposit for CADS">
-        Deposit a regulated Canadian-dollar-backed reserve and receive
-        <span class="ticker text-mist">CADS</span>, a synthetic Canadian dollar
-        pegged 1:1 and fully backed. CADS is liquid and composable; it does not
-        itself accrue yield.
+        Deposit into the protocol and receive
+        <span class="ticker text-mist">CADS</span>, an algorithmic stablecoin
+        stabilised against CAD over a blended, algorithmically-valued reserve.
+        Mint size tracks that valuation, not a fixed cash reserve per unit. CADS
+        is liquid and composable; it does not itself accrue yield.
       </StepCard>
       <StepCard index="02" title="Stake for sCADS">
         Stake CADS to mint <span class="ticker text-mist">sCADS</span>, the
@@ -55,10 +56,11 @@ import Placeholder from "@/components/Placeholder.astro";
         <TokenCard
           symbol="CADS"
           name="Synthetic Canadian dollar"
-          tagline="The stable entry point. Fully backed, redeemable, liquid, composable."
+          tagline="Algorithmic stablecoin. Stabilised against CAD over a blended, multi-method-valued reserve. Redeemable, liquid, composable."
           attributes={[
-            { k: "Peg", v: "1:1 to CAD" },
-            { k: "Backing", v: "Reserves + senior loan claim" },
+            { k: "Type", v: "Algorithmic stablecoin" },
+            { k: "Peg", v: "Tracks CAD (algorithmic)" },
+            { k: "Reserve", v: "Blended, multi-method valued" },
             { k: "Yield", v: "None (hold / transfer / trade)" },
             { k: "Mint / burn", v: "On deposit / redemption" },
           ]}
@@ -75,6 +77,31 @@ import Placeholder from "@/components/Placeholder.astro";
             { k: "Liquidity", v: "Northern Queue priority bidding" },
           ]}
         />
+      </div>
+      <div class="mt-14 grid gap-6 border-t border-hairline pt-12 md:grid-cols-2">
+        <div>
+          <p class="field-label" style="color: var(--color-orange);">CADS is not an aggregator token</p>
+          <h3 class="mt-3 font-display text-xl font-semibold text-snow">Two designs, deliberately distinct.</h3>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            <span class="ticker text-mist">CADS</span> is DAI Compute&rsquo;s own
+            algorithmic stablecoin: stabilised against CAD by a blended,
+            algorithmically-valued portfolio (fiat, other tokens, financial
+            products, physical assets, hardware). It is not one-to-one
+            fiat-collateralised. Transparency of reserve composition and
+            valuation methods is the trust anchor.
+          </p>
+        </div>
+        <div>
+          <p class="field-label" style="color: var(--color-yellow);">Aggregator tokens</p>
+          <h3 class="mt-3 font-display text-xl font-semibold text-snow">Collateralised, ratio self-chosen.</h3>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            Qualifying aggregators issue collateralised, asset-backed tokens.
+            DAI Compute requires genuine, provable collateralisation. It does
+            not enforce a fixed collateral ratio; each aggregator sets its own
+            (overcollateralised or fractional). See the
+            <a href="/aggregators" class="text-mist underline decoration-hairline underline-offset-4 transition-colors hover:text-snow">aggregator standard</a>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -106,7 +133,7 @@ import Placeholder from "@/components/Placeholder.astro";
         kind="data"
         ratio="21/9"
         label="Proof-of-reserves dashboard preview"
-        note="Sourcing brief: on-chain reserves view (CADS backing = reserves + loan book), loan-level collateral and borrower health, yield sources split. Verified-reserves style, Canada-sovereign framing. Dataviz build."
+        note="Sourcing brief: on-chain view of CADS blended-reserve composition and valuation methods, loan book and collateral health, yield sources split. Disclosed-reserve transparency, Canada-sovereign framing. Dataviz build."
       />
     </div>
   </section>

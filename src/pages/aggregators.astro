@@ -1,0 +1,151 @@
+---
+import Main from "@/layouts/Main.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
+import PlatformOfAggregators from "@/components/PlatformOfAggregators.astro";
+import AggregatorInterfaceArch from "@/components/AggregatorInterfaceArch.astro";
+
+const criteria = [
+  {
+    n: "01",
+    title: "Asset-backing / collateralisation",
+    body: "The aggregator token must be a genuinely collateralised, asset-backed token. That is the anti-rug condition. DAI Compute does not enforce a fixed collateral ratio: the aggregator sets its own (overcollateralised or fractional), as long as collateralisation is meaningful, disclosed, and provable. The token need not be a stablecoin; its value may float with the collateral.",
+  },
+  {
+    n: "02",
+    title: "Sovereignty and jurisdiction",
+    body: "Assets located in and legally bound to the sovereign jurisdiction, with enforceable local security interests. Sovereignty is a qualifying condition, not a marketing line.",
+  },
+  {
+    n: "03",
+    title: "Consensus and governance integrity",
+    body: "Permissioned or proof-of-authority consensus is acceptable for known-operator networks. State must be auditable. Contracts require hardening and third-party audit.",
+  },
+  {
+    n: "04",
+    title: "Interface and interoperability",
+    body: "A standard integration interface, settlement compatibility with the platform, and clear capacity accounting so aggregated supply can be composed into the sovereign pool.",
+  },
+  {
+    n: "05",
+    title: "Constraints (what disqualifies)",
+    body: "An uncollateralised or unbacked token, backing that cannot be proven, off-jurisdiction assets, unaudited contracts, an undisclosed or effectively-zero collateral ratio, or any design that dilutes sovereignty.",
+  },
+];
+---
+
+<Main
+  title="For Aggregators - The sovereign energy-and-compute standard"
+  description="DAI Compute defines how independent energy-and-compute asset networks integrate into a sovereign Canadian compute platform. Qualifying aggregators: register interest to integrate."
+  activePath="/aggregators"
+>
+  <PageHeader
+    eyebrow="For Aggregators"
+    title="The standard for sovereign energy-and-compute aggregators."
+    lede="DAI Compute defines how independent energy-and-compute asset networks integrate into a sovereign Canadian compute platform. If you operate a qualifying asset network, integrate."
+  />
+
+  <!-- Platform-of-aggregators model -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <p class="field-label" style="color: var(--color-orange);">The model</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      A platform of aggregators, not a closed network.
+    </h2>
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate">
+      DAI Compute is the platform (managed capacity, a micro-lending layer, and
+      coming synthetic-dollar settlement) and the standard-setter. It integrates
+      many qualifying aggregators. Platform, not a single closed network.
+      Standard-setter, not a gatekeeper. Integrator, not the only aggregator.
+    </p>
+    <div class="mt-12">
+      <PlatformOfAggregators />
+    </div>
+  </section>
+
+  <!-- Five qualifying criteria -->
+  <section class="border-y border-hairline bg-ink-2/30">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <p class="field-label" style="color: var(--color-orange);">The standard</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+        Five criteria to qualify.
+      </h2>
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate">
+        DAI Compute demands the existence and integrity of collateralisation, not
+        a specific collateral ratio. Uncollateralised tokens do not qualify.
+      </p>
+      <ol class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          criteria.map((c) => (
+            <li class="flex flex-col border border-hairline bg-ink-2/60 p-7">
+              <span class="field-note" style="color: var(--color-orange);">{c.n}</span>
+              <h3 class="mt-3 font-display text-lg font-semibold leading-snug text-snow">{c.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate">{c.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- CADS vs aggregator distinction -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+    <p class="field-label" style="color: var(--color-orange);">Design distinction</p>
+    <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+      CADS and aggregator tokens are different by design.
+    </h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <FeatureCard kicker="DAI Compute" title="CADS: algorithmic stablecoin">
+        <span class="ticker text-mist">CADS</span> is stabilised against CAD by a
+        blended, algorithmically-valued portfolio (fiat, other tokens, financial
+        products, physical assets, hardware). It is not one-to-one
+        fiat-collateralised. DAI Compute stabilises its own unit algorithmically
+        across a diversified reserve.
+      </FeatureCard>
+      <FeatureCard kicker="Partners" title="Aggregator tokens: collateralised" accent="yellow">
+        Aggregators issue collateralised, asset-backed tokens with a self-chosen
+        collateral ratio. DAI Compute requires that collateralisation is real and
+        provable. It does not enforce a fixed ratio. The token need not track a
+        fiat peg.
+      </FeatureCard>
+    </div>
+  </section>
+
+  <!-- Reference architecture -->
+  <section class="border-y border-hairline bg-ink-2/30">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <p class="field-label" style="color: var(--color-orange);">Reference architecture</p>
+      <h2 class="mt-4 max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight text-snow">
+        How a private-chain aggregator interfaces with the platform.
+      </h2>
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate">
+        A qualifying private-chain energy-and-compute aggregator attests real
+        assets into a collateralised token under permissioned consensus and a
+        legal wrapper, then exposes a standard integration interface. DAI Compute
+        accounts that capacity into the sovereign pool and settles through
+        <span class="ticker text-mist">CADS</span>.
+      </p>
+      <div class="mt-12">
+        <AggregatorInterfaceArch />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+    <div class="max-w-3xl border-l-2 pl-6" style="border-color: var(--color-orange);">
+      <p class="field-label text-slate">Call to integrate</p>
+      <h2 class="mt-3 font-display text-2xl font-semibold leading-tight tracking-tight text-snow sm:text-3xl">
+        Qualifying aggregators expand the sovereign pool.
+      </h2>
+      <p class="mt-4 text-sm leading-relaxed text-slate">
+        DAI Compute uses its own standard for its managed capacity. Qualifying
+        aggregators expand the sovereign energy-and-compute pool. DAI Compute is
+        pre-launch; no financial product is offered yet. Register interest to
+        integrate.
+      </p>
+      <a href="/contact" class="btn-primary mt-6 inline-flex items-center px-7 py-3.5 text-sm">
+        Register interest to integrate
+      </a>
+    </div>
+  </section>
+</Main>
